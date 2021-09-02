@@ -14,11 +14,12 @@ import { BrowserRouter } from 'react-router-dom'
 
 ReactDOM.render(
   <BrowserRouter>
-    <React.StrictMode>
+    {/* I remove strictMode because an warning from Material UI ... */}
+    {/* <React.StrictMode> */} 
       <Provider store={store}>
         <App />
       </Provider>
-    </React.StrictMode>
+    {/* </React.StrictMode> */}
   </BrowserRouter>,
   document.getElementById('root')
 );
