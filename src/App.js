@@ -6,9 +6,7 @@ function App() {
   return (
     <>
       <Switch>
-        <Route>
-          <Dashboard />
-        </Route>
+        <Route path="/admin/:page" component={Dashboard}/>
       </Switch>
     </>
   );

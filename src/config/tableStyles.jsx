@@ -3,7 +3,8 @@ import DatetimePicker from "components/DatetimePicker/DatetimePicker";
 export const filmManagementTableStyle = [
     {
         title: 'Tên phim',
-        field: 'tenPhim'
+        field: 'tenPhim',
+        validate: row => !row.tenPhim ? { isValid: false, helperText: 'Tên phim không được trống' } : true
     },
     {
         title: 'Trailer',
@@ -49,6 +50,7 @@ export const filmManagementTableStyle = [
             if (row.moTa.length <= 60) return row.moTa;
             return `${row.moTa.slice(0, 60)}...`;
         },
+        validate: row => (!row.moTa || row.moTa.length < 30) ? { isValid: false, helperText: 'Mô tả nên dài hơn 30 kí tự' } : true
     },
     {
         title: 'Ngày khởi chiếu',
@@ -69,6 +71,17 @@ export const filmManagementTableStyle = [
         field: "danhGia",
         align: "center",
         searchable: false,
+        validate: row => {
+            if (!row.danhGia)
+                return { isValid: false, helperText: 'Điểm đánh giá không được trống' };
+
+            const danhGia = Number(row.danhGia); 
+
+            if (isNaN(danhGia) || danhGia < 0 || danhGia > 10)
+                return { isValid: false, helperText: 'Điểm đánh giá phải từ 0 đến 10' };
+
+            return true;
+        }
     },
 ];
 
@@ -76,37 +89,78 @@ export const userManagementTableStyle = [
     {
         title: 'Tài khoản',
         field: 'taiKhoan',
+        validate: row => !row.taiKhoan ? { isValid: false, helperText: 'Tài khoản không được trống' } : true
     },
     {
         title: 'Mật khẩu',
         field: 'matKhau',
         sorting: false,
         searchable: false,
+        validate: row => {
+            if (!row.matKhau)
+                return { isValid: false, helperText: 'Mật khẩu không được trống' };
+
+            if (row.matKhau.length < 6)
+                return { isValid: false, helperText: 'Mật khẩu chứa ít nhất 6 kí tự' };
+
+            return true;
+        }
     },
     {
         title: 'Họ tên',
         field: 'hoTen',
         searchable: false,
+        validate: row => !row.hoTen ? { isValid: false, helperText: 'Họ tên không được trống' } : true
     },
     {
         title: 'Email',
         field: 'email',
         sorting: false,
         searchable: false,
+        validate: row => {
+            if (!row.email)
+                return { isValid: false, helperText: 'Email không được trống' };
+
+            const regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            if (!regex.test(String(row.email).toLowerCase()))
+                return { isValid: false, helperText: "Email không hợp lệ" };
+            return true;
+        }
     },
     {
         title: 'Số điện thoại',
         field: "soDt",
         searchable: false,
         sorting: false,
+        validate: row => {
+            const vnf_regex = /((09|03|07|08|05)+([0-9]{8})\b)/g;
+
+            if (!row.soDt)
+                return { isValid: false, helperText: 'Số điện thoại không được trống' };
+
+            if (!vnf_regex.test(String(row.soDt)))
+                return { isValid: false, helperText: 'Số điện thoại không hợp lệ' };
+
+            return true;
+        }
     },
     {
         title: 'Loại người dùng',
         field: "maLoaiNguoiDung",
         searchable: false,
+        lookup: {
+            "KhachHang": "Khách hàng",
+            "QuanTri": "Quản trị viên"
+        },
         render: row => {
-            let user = row.maLoaiNguoiDung === "KhachHang" ? "Khách hàng" : "Quản trị viên"; 
+            let user = row.maLoaiNguoiDung === "KhachHang" ? "Khách hàng" : "Quản trị viên";
             return user;
+        },
+        validate: row => {
+            if (!row.maLoaiNguoiDung)
+                return { isValid: false, helperText: 'Hãy chọn loại người dùng' };
+            
+            return true;
         }
     },
 ];
