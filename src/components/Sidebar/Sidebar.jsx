@@ -17,7 +17,7 @@ export default function Sidebar() {
     const param = useParams();
 
     return (
-        <nav id="sidebar" className="active vh-100">
+        <nav id="sidebar" className="active">
             <div className="custom-menu">
                 <button type="button" id="sidebarCollapse" className="btn btn-primary mt-3" onClick={handleClick}>
                     <MenuOutlinedIcon />
@@ -33,7 +33,7 @@ export default function Sidebar() {
                         <Link to="quan-ly-nguoi-dung" ><span className="fa fa-user mr-3" /> Quản lý người dùng</Link>
                     </li>
                     <li className={param.page === "quan-ly-lich-chieu" ? "active" : ""}>
-                        <Link to="#" ><span className="fa fa-briefcase mr-3" /> Quản lý lịch chiếu</Link>
+                        <Link to="quan-ly-lich-chieu" ><span className="fa fa-briefcase mr-3" /> Quản lý lịch chiếu</Link>
                     </li>
                 </ul>
             </div>

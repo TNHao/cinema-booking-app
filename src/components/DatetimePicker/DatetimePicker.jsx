@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
+import moment from 'moment';
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -8,9 +9,9 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: 'wrap',
   },
   textField: {
-    marginLeft: theme.spacing(1),
+    // marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
-    width: 200,
+    width: 250,
   },
 }));
 
@@ -18,12 +19,13 @@ export default function DatetimePicker(props) {
   const classes = useStyles();
 
   return (
-    <form className={classes.container} noValidate>
+    <form className={classes.container}>
       <TextField
+        label={props?.label}
         id="datetime-local"
         type="datetime-local"
-        // defaultValue="2017-05-24T10:30"
-        value={props.value}
+        // defaultValue={moment(new Date()).format("YYYY-MM-DDTkk:mm")}
+        value={props.value || moment(new Date()).format("YYYY-MM-DDTkk:mm")}
         onChange={e => props.onChange(e.target.value)}
         className={classes.textField}
         InputLabelProps={{
