@@ -1,0 +1,3 @@
+export const SET_LIST_FILM = 'SET_LIST_FILM';
+export const SET_LIST_CINEPLEX = 'SET_LIST_CINEPLEX';
+export const SET_LIST_CINEMA = 'SET_LIST_CINEMA';

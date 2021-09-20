@@ -1,27 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import 'bootstrap/dist/js/bootstrap'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import 'popper.js/dist/umd/popper'
-import 'jquery/dist/jquery'
+import 'bootstrap/dist/js/bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'popper.js/dist/umd/popper';
+import 'jquery/dist/jquery';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import store from './store'
-import { Provider } from 'react-redux'
+import store from './store';
+import { Provider } from 'react-redux';
 import 'antd/dist/antd.css';
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.render(
-  <BrowserRouter>
-    {/* I remove strictMode because an warning from Material UI ... */}
-    {/* <React.StrictMode> */} 
-      <Provider store={store}>
-        <App />
-      </Provider>
-    {/* </React.StrictMode> */}
-  </BrowserRouter>,
-  document.getElementById('root')
+    <BrowserRouter>
+        {/* I remove strictMode because an warning from Material UI ... */}
+        {/* <React.StrictMode> */}
+        <Provider store={store}>
+            <App />
+        </Provider>
+        {/* </React.StrictMode> */}
+    </BrowserRouter>,
+    document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function
