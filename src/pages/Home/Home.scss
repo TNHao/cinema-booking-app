@@ -1,0 +1,25 @@
+@import '../../utils/main';
+
+.home {
+    // position: relative;
+    .home__trailer{
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 100vh;
+        z-index: 99;
+    }
+    
+}
+
+@include responsive('iphone-plus'){
+    .home{
+        .home__showtime-title{
+            display: none;
+        }
+        .home__showtime{
+            display: none;
+        }
+        
+    }
+}

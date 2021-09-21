@@ -1,0 +1,98 @@
+@import '../../utils/main';
+
+.container-lg{
+    .ant-tabs{
+        // opacity: 0.6;
+        .ant-tabs-nav{           
+            .ant-tabs-nav-wrap{
+                .ant-tabs-nav-list{  
+                    .ant-tabs-tab{
+                        
+                    }
+                    &:hover{
+                        opacity: 1 !important;
+                    }
+                    .ant-tabs-tab-active{
+                        opacity: 1 !important;   
+                    }
+                }    
+            }
+        }
+        .ant-tabs-content-holder{
+            .ant-tabs-content-left{
+                .ant-tabs-tabpane{
+                    .ant-tabs-left{
+                        .ant-tabs-nav{
+                            width: 400px !important;
+                            .ant-tabs-nav-wrap{
+                                .ant-tabs-nav-list{
+                                    .ant-tabs-tab{
+                                        width: 400px !important;
+                                    }
+                                    .ant-tabs-tab-active{
+                                        opacity: 1 !important;   
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }          
+        }
+    }
+}
+
+@include responsive('medium'){
+    .container-lg{
+        .ant-tabs{
+            height: 600px !important;
+            .ant-tabs-nav{
+                .ant-tabs-nav-wrap{
+                    .ant-tabs-nav-list{
+                        .ant-tabs-tab{
+                            font-size: 12px;
+                            padding: 0 !important;
+                            .ant-tabs-tab-btn{
+                                padding-right: 10px;
+                                .flex{
+                                    img{
+                                        height: 50px !important;
+                                        width: 50px !important;
+                                    }
+                                    .text-left{
+                                        p{
+                                            margin-bottom: 0;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .ant-tabs-content-holder{
+                .ant-tabs-content-left{
+                    .ant-tabs-tabpane{
+                        padding-left: 10px;
+                        .ant-tabs-left{
+                            .ant-tabs-nav{
+                                width: 270px !important;
+                                .ant-tabs-nav-wrap{
+                                    .ant-tabs-nav-list{
+                                        .ant-tabs-tab{
+                                            width: 270px !important;
+                                        }
+                                        // .ant-tabs-tab-active{
+                                        //     opacity: 1 !important;   
+                                        // }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }          
+            }
+        }
+    }
+}
+

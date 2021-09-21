@@ -1,0 +1,38 @@
+.pagination{
+    margin-top: 20px;
+    justify-content: center;
+    .pagination__prev, .pagination__next{
+        background-color: #0a1e5e;
+        padding: 0.5rem 1.5rem;       
+        font-size: 1rem;
+        color: white;
+        border-radius: 20px;
+
+        &:hover{
+            background-color: blue;
+            transition: all .5s linear;
+        }
+    }
+    .pagination__prev{
+        margin-right: 2rem;
+    }
+    .pagination__next{
+        margin-left: 2rem;
+    }
+    span{
+        color: white;
+        font-size: 1.5rem;
+    }
+    // .pagination__next{
+    //     background-color: #0a1e5e;
+    //     padding: 0.7rem 2.5rem;
+    //     margin-left: 2rem;
+    //     font-size: 1.5rem;
+    //     color : white;
+    //     border-radius: 20px;
+    //     &:hover{
+    //         background-color: blue;
+    //         transition: all .5s linear;
+    //     }
+    // }
+}

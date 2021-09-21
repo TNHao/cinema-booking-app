@@ -1,0 +1,353 @@
+@import '../../utils/main';
+
+.detail__movie{
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: cover;
+    height: 100%;
+    .custom__card{
+        width: 100%;
+        height: 100%;
+        .detail__movie-title{
+            position: relative;
+            .detail__movie-poster{    
+                position: absolute;
+                border: 1px solid #17305f;
+                border-radius: 5px;
+                img{
+                    width: 100%;
+                    height: 350px;
+                }
+                .poster__overlay{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: -webkit-linear-gradient(180deg,rgba(0,18,50,.6),#001232 55%);
+                    opacity: 0.5;
+                }
+                .poster__play{
+                    img{
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%,-50%);
+                        width: 55px !important;
+                        height: 55px !important;
+                    }
+                    
+                }
+            }
+            .detail__movie-infor{               
+                color: rgb(101, 68, 248);
+                padding: 40px 0 0 20px;
+                .movie__infor{
+                    
+                    h1{
+                        color: white !important;
+                        font-size: 2rem;
+                        font-weight: bold;
+                        letter-spacing: 2px;
+                    }
+                    .typeof__movie{
+                        display: inline-block;
+                        border: 1px solid rgb(14, 20, 143);
+                        font-size: 13px;
+                        text-transform: uppercase;
+                        padding: 3px 17px;
+                        border-radius: 18px;
+                        transition: all .3s ease;
+                    }
+                    .movie__infor-maNhom{
+                        background-color: red;
+                        color: white;
+                        padding: 3px 17px;
+                        font-size: 13px;
+                        border-radius: 18px;
+                    }
+                    .movie__infor-time{
+                        display: flex;
+                        margin-top: 1rem;
+                        font-size: 1rem;
+                        .movie__infor-day, .movie__infor-minutes{
+                            align-items: center;
+                            margin-right: 2rem;
+                            i{
+                                color: white !important;
+                                margin-right: 0.5rem;
+                            }
+                        }
+                        
+                    }
+                }
+                
+                
+            }
+        }       
+    }
+}
+
+.detail__movie-banner{
+    background-color: #032055;
+    border-top: 1px solid #17305f;
+    border-bottom: 1px solid #17305f;
+    padding: 30px 0;
+    .banner__detail-content{
+        padding-left: 17%;
+        img{
+            display: inline;
+        }
+        i{
+            color: red;
+            font-size: 1.5rem;
+        }
+        p{
+            margin: 0;
+        }
+        .booking{
+            background-image: -webkit-linear-gradient(169deg,#5560ff 17%,#aa52a1 63%,#ff4343);
+            padding: 5px 20px;
+            height: 50px;
+            color: white;
+            border-radius: 1rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+            &:hover{
+                background-image: none;
+                border: 1px solid white;
+                transition: all .5s linear;
+            }
+        }
+    }
+}
+
+.detail__movie-content{
+    .detail__movie-mota{
+        h1{
+            color: #31d7a9 !important;
+        }
+        p{
+            line-height: 1.7;
+            font-size: 15px;
+            font-weight: 400;
+            color: hsla(0,0%,100%,.8);
+            letter-spacing: 0;
+            padding-bottom: 4rem;
+        }
+    }
+    .detail__movie-box{
+        display: flex;
+        background-color: #0a1e5e;
+        justify-content: space-around;
+        align-items: center;
+        border-radius: 0.5rem;
+        padding: 2rem 1rem;
+        .detail__movie-theater,.detail__movie-date{
+            display: flex;
+            align-items: center;
+            span{
+                margin: 0 1rem;
+                font-size: 1rem;
+                color: #31d7a9;
+            }
+            select{
+                font-size: 1rem;
+                padding: 5px;
+                border-radius: 6px;
+            }
+        }
+    }
+    .detail__movie-cinema{
+        margin-top: 8%;           
+        scroll-behavior: smooth;
+        .ShowTime_Ticket{
+            background-color: #01183e;
+            border-radius: 5px;
+            height: 100px;
+            margin-bottom: 2rem;
+            padding: 0 1rem;
+            color: white;
+            .ShowTime_Branch{
+                font-size: 0.9rem;
+                .ShowTime_Left{
+                    display: flex;
+                    align-items: center;
+                    i{
+                        &:hover {
+                            color: red;
+                            cursor: pointer;
+                        }
+                    }
+                }
+                .ShowTime_Right{
+                    padding-top: 3px;
+                    i{
+                        transition: all .5s;
+                        width: 23px;
+                        height: 23px;
+                        line-height: 23px;
+                        border-radius: 50%;
+                        background-color: #17305f;
+                        color: #9aace5;
+                        padding-left: 6px;
+                        &:hover{
+                            background-color: rgb(48, 180, 48);
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+            .ShowTime_Hours{
+                padding-top: 8px;
+                button {
+                    background-image: url('../../assets/imgs/download.png');
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    padding: 5px 7px;
+                    margin-right: 1rem;
+                    color: white;
+                }
+            }
+            &:hover{
+                .ShowTime_Branch{
+                    .ShowTime_Left{
+                        i{
+                            color: red;
+                            transition: all .5 linear;
+                        }
+                    }
+                    .ShowTime_Right{
+                        i{
+                            background-color: rgb(48, 180, 48);
+                            transition: all .5s linear;
+                        }
+                    }
+                }
+            }
+        }
+    } 
+    h5{
+        color: #31d7a9 !important;
+    }
+    .detail__movie-offer {
+        border: 1px dashed #1f3253;
+        border-radius: 10px;
+        padding: 20px 20px 28px;
+        margin-bottom: 30px;
+        
+        p{
+            margin-top: 20px;
+            font-size: 14px;
+            font-weight: 400;
+            color: white;
+            letter-spacing: 0;
+        }
+        span{
+            color: #9aace5;
+        }
+    }
+}
+
+@include responsive('extra-large'){
+    .detail__movie{
+        .custom__card{
+            .detail__movie-title{
+                .detail__movie-infor{
+                    .movie__infor{
+                        .movie__infor-time{
+                            .movie__infor-day, .movie__infor-minutes{
+                                margin-right: 0rem;
+                            }
+                            
+                        }
+                    }
+                    
+                    
+                }
+            }       
+        }
+    }
+    .detail__movie-banner{
+        .banner__detail-content{
+            padding-left: 25%;
+        }
+    }
+}
+
+@include responsive('large'){
+    .detail__movie{
+        .custom__card{
+            .detail__movie-title{
+                .detail__movie-poster{
+                    img{
+                        height: 294px;
+                    }
+                }
+            }       
+        }
+    }
+    .detail__movie-content{
+        .detail__movie-cinema{
+            .ShowTime_Ticket{
+                .ShowTime_Hours{
+                    padding-top: 0px;
+                }
+            }
+        } 
+    }
+};
+
+@include responsive('855px'){
+    .detail__movie-banner{
+        .banner__detail-content{
+            padding-left: 0%;
+        }
+    }
+}
+
+
+@include responsive('medium'){
+    .detail__movie{
+        .custom__card{
+            .detail__movie-title{
+                .detail__movie-poster{
+                    display: none;
+                }
+                .detail__movie-infor{
+                    text-align: center;
+                    .movie__infor{
+                        margin-bottom: 50px;
+                        .movie__infor-time{
+                            justify-content: center;
+                        }
+                    }
+                    
+                    
+                }
+            }       
+        }
+        .danh__gia{
+            display: none;
+        }
+    }
+    .detail__movie-content{
+        .detail__movie-box{
+            display: block;
+            .detail__movie-theater,.detail__movie-date{
+                justify-content: center;
+                margin-bottom: 10px;
+            }
+        }
+    }
+}
+
+@include responsive('small'){
+    .detail__movie-content{
+        .detail__movie-cinema{
+            .ShowTime_Ticket{
+                height: 100%;
+            }
+        }
+    }
+}

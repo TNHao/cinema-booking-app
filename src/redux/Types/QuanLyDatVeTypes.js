@@ -1,0 +1,5 @@
+export const GET_LIST_TICKET_ROOM = 'GET_LIST_TICKET_ROOM'
+export const GHE_DANG_DAT = 'GHE_DANG_DAT'
+export const DAT_VE = 'DAT_VE'
+export const DAT_VE_HOAN_TAT = 'DAT_VE_HOAN_TAT'
+export const DAT_GHE = 'DAT_GHE'
