@@ -1,7 +1,7 @@
 import React from 'react'
 import './TrailerMovie.scss'
 import { useDispatch } from 'react-redux'
-import { actIsTrailer } from 'redux/Actions/CarouselActions/TrailerActions'
+import { actIsTrailer } from 'redux/actions/CarouselActions/TrailerActions'
 
 export default function TrailerMovie(props) {
 

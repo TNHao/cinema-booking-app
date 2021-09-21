@@ -52,6 +52,7 @@ export default function UserManagement() {
 
     useEffect(() => {
         managementService.fetchUserList().then(res => setData(res.data.content));
+        // ĐỪNG XÓA DÒNG DƯỚI - cmt tắt cảnh báo thiếu dependancies của react
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 

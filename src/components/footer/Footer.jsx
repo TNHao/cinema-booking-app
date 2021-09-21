@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import './Footer.scss'
 import { useSelector, useDispatch } from 'react-redux'
-import { actGetListInforTheater } from 'redux/Actions/QuanLyRapActions'
+import { actGetListInforTheater } from 'redux/actions/QuanLyRapActions'
 import logo from '../../assets/imgs/logo.png'
 import _ from 'lodash'
 

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux';
+import React, { useEffect } from 'react'
+import { useDispatch } from 'react-redux';
 import { Tabs } from 'antd';
 import { NavLink } from 'react-router-dom';
 import moment from 'moment';
@@ -19,7 +19,6 @@ export default function TabsCinema(props) {
 
     console.log(listShowtimes);
 
-    const day = new Date('2022/02/24')
     return (
         <Tabs defaultActiveKey="1" centered>
                         <TabPane tab="Lich Chieu" key="1" style={{minHeight: '300px'}}>

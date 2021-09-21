@@ -12,7 +12,6 @@ import reportWebVitals from './reportWebVitals';
 import store from './store'
 import { Provider } from 'react-redux'
 import 'antd/dist/antd.css';
-import { BrowserRouter } from 'react-router-dom'
 
 
 // Cấu hình realtime ( Websocket với signalR)
@@ -34,9 +33,9 @@ connection.start().then(
   () => {
     ReactDOM.render(
       <Provider store={store}>
-        <React.StrictMode>
+        {/* <React.StrictMode> */}
           <App />
-        </React.StrictMode>
+        {/* </React.StrictMode> */}
       </Provider>,
       document.getElementById('root')
     );

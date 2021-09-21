@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Slider from "react-slick";
 import { useSelector, useDispatch } from 'react-redux';
-import { actGetListMovie, actGetListMoviePagination } from 'redux/Actions/QuanLyPhimActions';
+import { actGetListMoviePagination } from 'redux/actions/QuanLyPhimActions';
 import CardMovie from 'components/CardMovie/CardMovie.';
 import './HomeMovie.scss'
 import Pagination from 'components/Pagination/Pagination';

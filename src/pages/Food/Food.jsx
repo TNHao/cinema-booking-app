@@ -3,11 +3,9 @@ import React, { useEffect } from 'react'
 import food from '../../assets/imgs/food.png'
 import './Food.scss'
 import { useSelector, useDispatch } from 'react-redux'
-import { actDatVeApi, actGetListTicketRoomApi } from 'redux/Actions/QuanLyDatVeActions'
-import { actAddFoodToCart, actGetListFoodApi, actMinusFoodToCart } from 'redux/Actions/QuanLyFoodActions'
+import { actDatVeApi, actGetListTicketRoomApi } from 'redux/actions/QuanLyDatVeActions'
+import { actAddFoodToCart, actGetListFoodApi, actMinusFoodToCart } from 'redux/actions/QuanLyFoodActions'
 import { thongTinDatVe } from 'models/ThongTinDatVe'
-import Swal from 'sweetalert2'
-
 
 export default function Food(props) {
 

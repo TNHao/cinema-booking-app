@@ -12,19 +12,18 @@ const managementService = new MovieManagementApi();
 
 const editable = (props) => ({
     onRowAdd: async newData => {
-        // const dataList = [...props.data];
-        // dataList.push(newData);
-        // props.setData(dataList);
-
-        // const dataUpdate = { ...newData, maNhom: "GP01" };
-        // return props.managementService.addNewData(dataUpdate);
-
         const formData = new FormData();
 
         for (let key in newData) {
-            if (key !== "hinhAnh")
-                formData.append(key, newData[key]);
-            else {
+            if (key === "ngayKhoiChieu") {
+                let date = new Date(newData[key]);
+                date = moment(date).format('DD/MM/yyyy') + " " + moment(date).format('hh:mm:ss');
+                console.log(date);
+                formData.append(key, date);
+                continue;
+            }
+
+            if (key === "hinhAnh") {
                 if (!props.fileUploaded) formData.append('hinhAnh', null);
                 else
                     await fetch(props.fileUploaded.result)
@@ -34,13 +33,15 @@ const editable = (props) => ({
                             formData.append('hinhAnh', file, props.fileUploaded.name);
                             props.dispatch(actFileUpload(null));
                         });
+                continue;
             }
+
+            formData.append(key, newData[key]);
         }
 
-        console.log("testing");
         await props.managementService.addNewData(formData);
 
-        return props.managementService.fetchData()
+        return props.managementService.fetchMovieList()
             .then(res => {
                 // const dataList = [...props.data];
                 // dataList.push(res.data.content);
@@ -57,8 +58,10 @@ const editable = (props) => ({
                 date = moment(date).format('DD/MM/yyyy') + " " + moment(date).format('hh:mm:ss');
                 console.log(date);
                 formData.append(key, date);
+                continue;
             }
-            else if (key === "hinhAnh") {
+
+            if (key === "hinhAnh") {
                 if (!props.fileUploaded) formData.append('hinhAnh', null);
                 else
                     await fetch(props.fileUploaded.result)
@@ -68,13 +71,13 @@ const editable = (props) => ({
                             formData.append('hinhAnh', file, props.fileUploaded.name);
                             props.dispatch(actFileUpload(null));
                         });
+                continue;
             }
-            else {
-                formData.append(key, newData[key]);
-            }
+
+            formData.append(key, newData[key]);
         }
 
-        await props.managementService.updateData(formData);
+        await props.managementService.updateMovie(formData);
 
         return props.managementService.fetchMovieDetail(newData.maPhim)
             .then(res => {
@@ -182,17 +185,15 @@ export default function FilmManagement() {
     //     }
     // })
 
-
-
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        managementService.fetchData().then(res => setData(res.data.content));
+        managementService.fetchMovieList().then(res => setData(res.data.content));
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (
-        <div className="table mt-5">
+        <div className="table mt-5 mb-3">
             <MuiTable
                 columnStyle={columnStyle}
                 data={data}

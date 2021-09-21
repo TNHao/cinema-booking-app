@@ -10,7 +10,7 @@ import './Header.scss'
 
 export default function Header(props) {
 
-    const userName = JSON.parse(localStorage.getItem(USER_LOGIN))
+    // const userName = JSON.parse(localStorage.getItem(USER_LOGIN))
     const { userLogin } = useSelector(state => state.QuanLyUserReducer)
     const dispatch = useDispatch()
 
@@ -58,6 +58,7 @@ export default function Header(props) {
                                             {userLogin.hoTen}
                                         </a>
                                         <div className="dropdown-menu bg-black" aria-labelledby="dropdownMenuLink" style={{ minWidth: '0' }} >
+                                            {userLogin.maLoaiNguoiDung === "QuanTri" && <NavLink className="dropdown-item " to="/admin/quan-ly-phim">Admin</NavLink>}
                                             <NavLink className="dropdown-item " to="/profile">Profile</NavLink>
                                             <NavLink className="dropdown-item " to="/home" onClick={LogOut}>Log out</NavLink>
                                         </div>

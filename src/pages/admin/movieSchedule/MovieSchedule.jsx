@@ -115,7 +115,7 @@ export default function MovieSchedule() {
     return (
         <div className="table mt-5 mb-2">
             <div className="shadow-sm rounded px-5 py-4 mb-2">
-                <h2>Quản lý lịch chiếu</h2>
+                <h2 style={{ 'fontSize': "30px" }}>Quản lý lịch chiếu</h2>
                 <div className="row">
                     <Selector {...movieSelect} action={actSetMovieSelected} />
                     <Selector {...theaterFranchiseSelect} action={actSetTheaterFranchiseSelected} />
@@ -141,7 +141,7 @@ export default function MovieSchedule() {
 
             <MaterialTable
                 icons={tableIcons}
-                title={<h2 className="m-0">Thông tin lịch chiếu phim {tableTitle}</h2>}
+                title={<h2 className="m-0" style={{ 'fontSize': "30px" }}>Thông tin lịch chiếu phim {tableTitle}</h2>}
                 columns={scheduleManagementTableStyle}
                 data={tableData}
                 options={{

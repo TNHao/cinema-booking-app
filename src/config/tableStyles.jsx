@@ -48,6 +48,7 @@ export const filmManagementTableStyle = [
                     placeholder="Mô tả"
                     className="w-100"
                     onChange={e => props.onChange(e.target.value)}
+                    style={{ 'height': '85px', 'border': '1px solid black' }}
                 />
             )
         },

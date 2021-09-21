@@ -1,18 +1,14 @@
 import React from 'react'
 import './Login.scss'
-import { ErrorMessage, Formik, withFormik, Form } from 'formik'
+import { ErrorMessage, withFormik } from 'formik'
 import * as Yup from 'yup'
 import { connect } from 'react-redux'
-import { actLogin } from 'redux/Actions/QuanLyUserActions'
+import { actLogin } from 'redux/actions/QuanLyUserActions'
 
 function Login(props) {
 
     const {
-        values,
-        touched,
-        errors,
         handleChange,
-        handleBlur,
         handleSubmit,
     } = props;
 

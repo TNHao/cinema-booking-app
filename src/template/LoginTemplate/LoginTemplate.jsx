@@ -1,15 +1,8 @@
-import { Fragment, useState } from "react"
-import { NavLink, Route } from "react-router-dom"
+import { Route } from "react-router-dom"
 import './LoginTemplate.scss'
-
-
-
-
 
 export const LoginTemPlate = (props) => {
     
-    const [checked, setChecked] = useState(true)
-
     const { Component, ...restParams } = props
 
     return <Route {...restParams} render={(propsRoute) => {

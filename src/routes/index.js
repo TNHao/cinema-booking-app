@@ -1,10 +1,9 @@
+import Dashboard from "pages/admin/dashboard/Dashboard";
 import BuyTicket from "pages/BuyTicket/BuyTicket";
 import DetailMovie from "pages/DetailMovie/DetailMovie";
 import Food from "pages/Food/Food";
 import Home from "pages/Home/Home";
-import Login from "pages/Login/Login";
 import Profile from "pages/Profile/Profile";
-import Register from "pages/Register/Register";
 
 export const clientRoutes = [
     {
@@ -43,4 +42,13 @@ export const clientRoutes = [
         exact : false,
         isPrivate : true
     },
+]
+
+export const adminRoutes = [
+    {
+        path : '/admin/:page',
+        Component : Dashboard,
+        exact : true,
+        isPrivate : true
+    }
 ]

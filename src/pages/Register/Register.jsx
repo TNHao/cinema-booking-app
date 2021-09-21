@@ -1,18 +1,14 @@
-import { withFormik, Form, ErrorMessage } from 'formik'
+import { withFormik, ErrorMessage } from 'formik'
 import React from 'react'
 import './Register.scss'
 import * as Yup from 'yup'
 import { connect } from 'react-redux'
-import { actRegister } from 'redux/Actions/QuanLyUserActions'
+import { actRegister } from 'redux/actions/QuanLyUserActions'
 
 function Register(props) {
 
     const {
-        values,
-        touched,
-        errors,
         handleChange,
-        handleBlur,
         handleSubmit,
     } = props;
 

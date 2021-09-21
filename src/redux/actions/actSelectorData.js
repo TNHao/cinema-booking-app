@@ -1,5 +1,9 @@
-import axios from "axios"
+import baseServices from "services/baseServices";
+import { USER_LOGIN } from "utils/constants/SettingSystems";
 import { SET_MOVIE_LIST, SET_THEATERS, SET_THEATER_FRANCHISES, SET_THEATER_ID } from "redux/Types/selectorTypes"
+
+const baseSevice = new baseServices();
+const maNhom = localStorage.getItem(USER_LOGIN) ? JSON.parse(localStorage.getItem(USER_LOGIN)).maNhom : "GP01";
 
 export const actSetMovieList = (data) => ({
     type: SET_MOVIE_LIST,
@@ -24,16 +28,13 @@ export const actSetTheaterId = (data) => ({
 export const actFetchMovieData = () => {
     return async (dispatch) => {
         try {
-            await axios({
-                url: "http://movieapi.cyberlearn.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP01",
-                method: "GET"
-            }).then(res => {
-                let remoteData = res.data.content;
-                remoteData = remoteData.map(item => ({ maPhim: item.maPhim, tenPhim: item.tenPhim }));
-                dispatch(actSetMovieList(remoteData));
-            });
+            await baseSevice.get(`/api/QuanLyPhim/LayDanhSachPhim?maNhom=${maNhom}`)
+                .then(res => {
+                    let remoteData = res.data.content;
+                    remoteData = remoteData.map(item => ({ maPhim: item.maPhim, tenPhim: item.tenPhim }));
+                    dispatch(actSetMovieList(remoteData));
+                });
 
-            // dispatch(actSetMovieList(data));
         } catch (err) {
             console.log(err);
         }
@@ -43,16 +44,12 @@ export const actFetchMovieData = () => {
 export const actFetchTheaterFranchises = () => {
     return async (dispatch) => {
         try {
-            await axios({
-                url: "http://movieapi.cyberlearn.vn/api/QuanLyRap/LayThongTinHeThongRap",
-                method: "GET"
-            }).then(res => {
-                let remoteData = res.data.content;
-                remoteData = remoteData.map(item => ({ maHeThongRap: item.maHeThongRap, tenHeThongRap: item.tenHeThongRap }));
-                dispatch(actSetTheaterFranchises(remoteData));
-            });
-
-            // dispatch(actSetTheaterFranchises(data));
+            await baseSevice.get('/api/QuanLyRap/LayThongTinHeThongRap')
+                .then(res => {
+                    let remoteData = res.data.content;
+                    remoteData = remoteData.map(item => ({ maHeThongRap: item.maHeThongRap, tenHeThongRap: item.tenHeThongRap }));
+                    dispatch(actSetTheaterFranchises(remoteData));
+                });
         } catch (err) {
             console.log(err);
         }
@@ -62,13 +59,10 @@ export const actFetchTheaterFranchises = () => {
 export const actFetchTheaters = (theaterFranchiseSelected) => {
     return async (dispatch) => {
         try {
-            await axios({
-                url: `http://movieapi.cyberlearn.vn/api/QuanLyRap/LayThongTinCumRapTheoHeThong?maHeThongRap=${theaterFranchiseSelected}`,
-                method: "GET"
-            }).then(res => {
-                dispatch(actSetTheaters(res.data.content))
-            });
-
+            await baseSevice.get(`/api/QuanLyRap/LayThongTinCumRapTheoHeThong?maHeThongRap=${theaterFranchiseSelected}`)
+                .then(res => {
+                    dispatch(actSetTheaters(res.data.content))
+                });
         } catch (err) {
             console.log(err);
         }
