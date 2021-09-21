@@ -6,17 +6,15 @@ export default function Selector(props) {
     const dispatch = useDispatch();
     
     const handleChange = (event) => {
-        console.log(1)
         dispatch(props.action(event.target.value));
     }
 
     return (
         <FormControl className={props.styles.formControl}>
-            <InputLabel htmlFor="age-native-simple" className={props.styles.inputLabel}>{props.inputLabel}</InputLabel>
+            <InputLabel className={props.styles.inputLabel}>{props.inputLabel}</InputLabel>
             <Select
                 native
                 disabled = {props?.data?.length > 0 ? false : true}
-                // value={""}
                 className={props.styles.select}
                 onChange={handleChange}
                 inputProps={props.inputProps}

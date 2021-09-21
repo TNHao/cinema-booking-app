@@ -1,27 +1,23 @@
 import axios from "axios"
+import { SET_MOVIE_LIST, SET_THEATERS, SET_THEATER_FRANCHISES, SET_THEATER_ID } from "redux/Types/selectorTypes"
 
 export const actSetMovieList = (data) => ({
-    type: "SET_MOVIE_LIST",
+    type: SET_MOVIE_LIST,
     payload: data
 })
 
 export const actSetTheaterFranchises = (data) => ({
-    type: "SET_THEATER_FRANCHISES",
+    type: SET_THEATER_FRANCHISES,
     payload: data
 })
 
 export const actSetTheaters = (data) => ({
-    type: "SET_THEATERS",
+    type: SET_THEATERS,
     payload: data
 })
 
 export const actSetTheaterId = (data) => ({
-    type: "SET_THEATER_ID",
-    payload: data
-})
-
-export const actSetDetailSchedule = (data) => ({
-    type: "SET_DETAIL_SCHEDULE",
+    type: SET_THEATER_ID,
     payload: data
 })
 
@@ -72,21 +68,6 @@ export const actFetchTheaters = (theaterFranchiseSelected) => {
             }).then(res => {
                 dispatch(actSetTheaters(res.data.content))
             });
-
-            // dispatch(actSetTheaters(data));
-        } catch (err) {
-            console.log(err);
-        }
-    }
-}
-
-export const actFetchDetailSchedule = (movieId) => {
-    return async (dispatch) => {
-        try {
-            await axios({
-                url: `http://movieapi.cyberlearn.vn/api/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${movieId}`,
-                method: "GET"
-            }).then(res => dispatch(actSetDetailSchedule(res.data.content)));
 
         } catch (err) {
             console.log(err);

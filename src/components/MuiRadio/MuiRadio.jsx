@@ -16,11 +16,11 @@ export default function MuiRadio() {
 
   return (
     <FormControl component="fieldset" className="ml-md-4 mt-4">
-      <FormLabel component="legend">Giá tiền</FormLabel>
-      <RadioGroup onChange={handleRadioChange} row defaultValue="55000" >
-        <FormControlLabel value="55000" control={<Radio color="primary"/>} label="55.000 VND"/>
-        <FormControlLabel value="75000" control={<Radio color="primary"/>} label="75.000 VND"/>
-        <FormControlLabel value="95000" control={<Radio color="primary"/>} label="95.000 VND"/>
+      <FormLabel component="legend">Giá vé</FormLabel>
+      <RadioGroup onChange={handleRadioChange} row defaultValue={`${75000}`} >
+        <FormControlLabel value={`${75000}`} control={<Radio color="primary"/>} label="75.000 VND"/>
+        <FormControlLabel value={`${95000}`} control={<Radio color="primary"/>} label="95.000 VND"/>
+        <FormControlLabel value={`${105000}`} control={<Radio color="primary"/>} label="105.000 VND"/>
       </RadioGroup>
     </FormControl>
   );

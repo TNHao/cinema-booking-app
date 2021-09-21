@@ -9,7 +9,6 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: 'wrap',
   },
   textField: {
-    // marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
     width: 250,
   },
@@ -24,8 +23,7 @@ export default function DatetimePicker(props) {
         label={props?.label}
         id="datetime-local"
         type="datetime-local"
-        // defaultValue={moment(new Date()).format("YYYY-MM-DDTkk:mm")}
-        value={props.value || moment(new Date()).format("YYYY-MM-DDTkk:mm")}
+        value={props.value || moment(new Date()).format("YYYY-MM-DDThh:mm")}
         onChange={e => props.onChange(e.target.value)}
         className={classes.textField}
         InputLabelProps={{

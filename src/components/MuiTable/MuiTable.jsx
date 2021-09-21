@@ -1,5 +1,5 @@
+import React from 'react';
 import MaterialTable from 'material-table';
-import React, { useState } from 'react';
 import tableIcons from 'config/muiTableIcons';
 import './_muiTable.scss';
 
@@ -7,7 +7,7 @@ export default function MuiTable(props) {
     return (
         <MaterialTable
             icons={tableIcons}
-            title="Editable Preview"
+            title={props.title}
             columns={props.columnStyle}
             data={
                 // (query) => {

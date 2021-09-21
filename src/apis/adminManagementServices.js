@@ -1,14 +1,14 @@
 import axios from "axios";
 
 export class UserManagementApi {
-    fetchData = () => {
+    fetchUserList = () => {
         return axios({
             url: "http://movieapi.cyberlearn.vn/api/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP01",
             method: "GET"
         })
     }
 
-    updateData = (user) => {
+    updateUser = (user) => {
         return axios({
             url: "http://movieapi.cyberlearn.vn/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung",
             method: "POST",
@@ -20,7 +20,7 @@ export class UserManagementApi {
         });
     }
 
-    addNewData = (user) => {
+    addNewUser = (user) => {
         return axios({
             url: "http://movieapi.cyberlearn.vn/api/QuanLyNguoiDung/ThemNguoiDung",
             method: "POST",
@@ -32,7 +32,7 @@ export class UserManagementApi {
         })
     }
 
-    deleteData = (user) => {
+    deleteUser = (user) => {
         return axios({
             url: `http://movieapi.cyberlearn.vn/api/QuanLyNguoiDung/XoaNguoiDung?TaiKhoan=${user.taiKhoan}`,
             method: "DELETE",
@@ -107,5 +107,25 @@ export class MovieManagementApi {
             url: `http://movieapi.cyberlearn.vn/api/QuanLyPhim/LayDanhSachPhimPhanTrang?maNhom=GP01&soTrang=${page}&soPhanTuTrenTrang=${pageSize}`,
             method: "GET"
         })
+    }
+}
+
+export class MovieScheduleApi {
+    addMovieSchedule = (data) => {
+        return axios({
+            url: 'http://movieapi.cyberlearn.vn/api/QuanLyDatVe/TaoLichChieu',
+            method: 'POST',
+            data: data,
+            headers: {
+                Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiMTIzNCIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2VtYWlsYWRkcmVzcyI6InF3dHcxMjMxc3NzQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6WyJRdWFuVHJpIiwicXd0dzEyMzFzc3NAZ21haWwuY29tIiwiR1AwMSJdLCJuYmYiOjE2MzEwMTY5NTYsImV4cCI6MTYzMTAyMDU1Nn0.I5tDI56fEX05yQhVXrUA3e2KWjm0h1WfsZ48pSoRlcc",
+            }
+        })
+    }
+
+    fetchDetailSchedule = async (movieId) => {
+        return await axios({
+            url: `http://movieapi.cyberlearn.vn/api/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${movieId}`,
+            method: "GET"
+        });
     }
 }

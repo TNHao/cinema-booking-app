@@ -4,43 +4,54 @@ import { userManagementTableStyle } from 'config/tableStyles';
 import { UserManagementApi } from 'apis/adminManagementServices';
 
 const editable = (props) => ({
-    onRowAdd: newData => {
-        const dataList = [...props.data];
-        dataList.push(newData);
-        props.setData(dataList);
+    onRowAdd: newData =>
+        new Promise((resolve, reject) => {
+            const dataList = [...props.data];
+            dataList.push(newData);
+            props.setData(dataList);
 
-        const dataUpdate = { ...newData, maNhom: "GP01" };
-        return props.managementService.addNewData(dataUpdate);
-    },
-    onRowUpdate: (newData, oldData) => {
-        console.log(newData);
+            const dataUpdate = { ...newData, maNhom: "GP01" };
+            console.log('checked')
+            props.managementService.addNewUser(dataUpdate)
+                .then(() => resolve())
+                .catch(() => reject());
+        })
+    ,
+    onRowUpdate: (newData, oldData) =>
+        new Promise((resolve, reject) => {
+            const dataList = [...props.data];
+            dataList[oldData.tableData.id] = newData;
+            props.setData(dataList);
 
-        const dataList = [...props.data];
-        dataList[oldData.tableData.id] = newData;
-        props.setData(dataList);
+            const dataUpdate = { ...newData, maNhom: "GP01" };
+            props.managementService.updateUser(dataUpdate)
+                .then(() => resolve())
+                .catch(() => reject());
+        })
+    ,
+    onRowDelete: oldData =>
+        new Promise((resolve, reject) => {
+            const index = oldData.tableData.id;
+            const updatedRows = [...props.data];
 
-        const dataUpdate = { ...newData, maNhom: "GP01" };
-        return props.managementService.updateData(dataUpdate);
-    },
-    onRowDelete: oldData => {
-        const index = oldData.tableData.id;
-        const updatedRows = [...props.data];
+            updatedRows.splice(index, 1);
+            props.setData(updatedRows)
 
-        updatedRows.splice(index, 1);
-        props.setData(updatedRows)
-
-        return props.managementService.deleteData(oldData);
-    }
+            console.log("checked")
+            props.managementService.deleteUser(oldData)
+                .then(() => resolve())
+                .catch(() => reject());
+        })
 })
 
-export default function UserManagement() {
-    const managementService = new UserManagementApi();
-    const columnStyle = userManagementTableStyle;
+const managementService = new UserManagementApi();
+const columnStyle = userManagementTableStyle;
 
+export default function UserManagement() {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        managementService.fetchData().then(res => setData(res.data.content));
+        managementService.fetchUserList().then(res => setData(res.data.content));
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
@@ -52,6 +63,7 @@ export default function UserManagement() {
                 setData={setData}
                 managementService={managementService}
                 editable={editable}
+                title="Quản lý người dùng"
             />
         </div>
     )
