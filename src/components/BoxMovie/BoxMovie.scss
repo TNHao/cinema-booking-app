@@ -1,0 +1,105 @@
+@import '../../utils/main';
+.box__movie {
+    background: linear-gradient(90deg,rgba(68,47,187,.801),rgba(76,16,155,.555)),url(../../assets/imgs/box.jpg);
+    padding: 2rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: 0.5rem;
+    position: relative;
+    margin-top: -90px;
+    .welcome {
+        display: flex;  
+        justify-content: space-between;
+        align-items: center;    
+        .welcome__title{
+            h1{
+                font-size: 1.5rem;
+                letter-spacing: 2px;
+                color: #31d7a9;
+            }
+            span{
+                font-size: 2rem;
+                font-weight: 700;
+                letter-spacing: 2px;
+                color: white;
+            }
+        }
+        .welcome__button{
+            button{
+                background-image: -webkit-linear-gradient(169deg,#5560ff 17%,#aa52a1 63%,#ff4343);
+                padding: 1px 30px;
+                height: 50px;
+                color: white;
+                border-radius: 1rem;
+                font-size: 1rem;
+                font-weight: bold;
+                cursor: no-drop;
+            }
+        }
+        
+    }
+    .content__box{
+        margin-top: 1rem;
+        .content__box-movie{
+            margin: 0 5px;
+            .logo__select{
+                display: flex;
+                align-items: center;
+                margin-bottom: 1rem;
+                span{
+                    margin-left: 15px;
+                    font-size: 1rem;
+                    font-weight: 500;
+                    color: #31d7a9;;
+                }
+            }
+            select{
+                width:100%;
+                font-size: 15px;
+                background-color: hsla(0,0%,100%,.61);
+                padding: 5px;                
+                option{
+                    
+                }
+            }
+        }
+    }
+}
+
+@include responsive('iphone-plus'){
+    .box__movie{
+        margin-top: -30%;
+        .welcome{
+            display: inline;
+            text-align: center;
+            .welcome__title{
+                h1{
+                    font-size: 1rem;
+                }
+                span{
+                    font-size: 1.25rem;
+                }
+            }
+            .welcome__button{
+                margin: 0 auto;
+                button{
+                    margin-top: 0.5rem;
+                }
+            }
+            
+        }
+        .content__box{
+            margin-top: 0.75rem;
+            .content__box-movie{
+                margin-top: 1rem;
+                .logo__select{
+                    margin-bottom: 0.25rem;
+                    span{
+                        font-size: 0.75rem;
+                    }
+                }
+            }
+        }
+    }
+}

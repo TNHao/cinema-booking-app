@@ -1,0 +1,18 @@
+@mixin styleButton($bg-color, $color, $fs) {
+    background-color: $bg-color;
+    color: $color;
+    font-size: $fs;
+}
+
+
+@mixin responsive($screen) {
+    @if(map-has-key($map: $breakpoints, $key: $screen)) {
+        $value: map-get($map: $breakpoints, $key: $screen);
+        @media Screen and (max-width : $value) {
+            @content;
+        }
+    }
+    @else {
+        @error 'Screen does not exist';
+    }
+}

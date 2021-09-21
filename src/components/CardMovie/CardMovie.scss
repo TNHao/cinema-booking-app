@@ -1,0 +1,163 @@
+@import '../../utils/main';
+
+.card__movie{   
+    padding: 2rem 1rem;
+    .card__item {
+        .poster__movie{
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            width: 300px;
+            .over__lay{
+                position: absolute;
+                background: linear-gradient(to top, #000, transparent 100%);       
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+                border-radius: 20px;
+                
+            }
+            .play__video{
+            position: absolute;
+            font-size: 6rem;
+            margin: auto;
+            left: 35%;
+            top : 40%;
+            color: rgb(190, 180, 180);           
+            }
+        
+    
+            .bg__movie{
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                border-radius: 20px;
+            }
+
+            .rating__star{
+                position: absolute;
+                padding: 0.5rem;
+                background-color: rgba(12,27,54,.8);
+                width: auto;
+                top: 10px;
+                right: 10px;
+                text-align: center;
+                border-radius: 5px;
+                opacity: 0;
+                .rating{
+                    span{
+                        font-size: 1.5rem;  
+                        color: white;                 
+                    }
+                }
+                .star{
+                    // display: flex;
+                    // font-size: 5px !important;
+                    // color: rgb(228, 231, 25);
+                    ul{
+                        li{
+                            font-size: 10px;
+                            margin-right: 0;
+                        }
+                    }
+                }
+            }
+        }
+        &:hover {
+
+            .bg__movie{
+                transform: scale(1.2);
+                transition: all .5s linear;
+            }
+
+            .over__lay {
+                opacity: 1;
+                transition: all .5s linear;
+                z-index: 10;
+            }
+            .rating__star{
+                opacity: 1;
+                transition: all .5s linear;
+            }
+        }
+    
+        .info__movie{
+            margin-top: 2rem;
+            width: 300px;
+            height: 5rem;
+            .info__movie-title{
+                span{
+                    font-size: 1rem;
+                    font-weight: bold;
+                    padding : 5px 10px;
+                    background-color: red;
+                    color: white;
+                    border-radius: 0.5rem;
+                    float: left;
+                    margin-right: 1.5rem;
+                }
+                h3{
+                    font-size: 1.9rem;
+                    color: white;
+                }
+            }
+
+            .muave {
+                margin-top: 1rem;
+                display: none;
+                button{
+                    width: 100%;
+                    background-color: rgba(255, 0, 0, 0.993);
+                    border-radius: 1rem;
+                    padding: 0.5rem 0;
+                    font-size: 1.5rem;
+                    font-weight: bold;
+                    color: white;
+                    &:hover{
+                        background-color: transparent;
+                        border: 3px solid rgba(255, 0, 0, 0.993);
+                        transition: all .5s linear;
+                    }
+                }
+                
+            }
+            }
+            
+    }
+
+    &:hover{
+        .info__movie{
+            .info__movie-title{
+                display: none;
+                // transition: display 3s linear;
+            }
+            .muave{
+                display: block; 
+                transition: all 3s linear;
+            }
+        }
+        
+        cursor: pointer;
+    }
+}
+// .home__trailer{
+//     position: fixed;
+//     top: 0;
+//     width: 100vh;
+//     height: 100vh;
+//     z-index: 99;
+// }
+
+@include responsive('iphone-plus'){
+
+}
+
+
+
+
+
+
+
+
