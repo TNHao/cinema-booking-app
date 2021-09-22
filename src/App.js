@@ -38,12 +38,6 @@ function App() {
         
         <LoginTemPlate path="/login" exact Component={Login}/>
         <LoginTemPlate path="/register" exact Component={Register}/>
-        {/* <HomeTemplate path="/home" exact Component={Home}/>
-        <HomeTemplate path="/detail/:idMovie" exact Component={DetailMovie}/> 
-        <HomeTemplate path='/buyticket/:maLichChieu' exact Component={BuyTicket}/>
-        <HomeTemplate path='/food/:maLichChieu' exact Component={Food}/>
-        <HomeTemplate path="/profile" exact Component={Profile}/>
-        <HomeTemplate path="/" exact Component={Home}/> */}
         {renderRouter(clientRoutes, HomeTemplate)} 
         <Route  path="*" component={PageNotFound}/>
       </Switch>

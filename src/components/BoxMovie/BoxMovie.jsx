@@ -8,21 +8,16 @@ import { useSelector, useDispatch } from 'react-redux'
 import { actGetListMovie, actGetListMovieByDate } from 'redux/Actions/QuanLyPhimActions'
 import moment from 'moment'
 
+
+
+    // Lấy 5 ngày tiếp theo tính từ ngày hiện tại
     let today = new Date();
     let dd = today.getDate();
     let mm = today.getMonth() + 1;
     let yyyy = today.getFullYear();
-
-
-    // console.log(dd,mm,yyyy);
-
     today = yyyy + '/' + mm + '/' + dd;
-
     let ddd = new Date(today);
-
     let dayday = moment(ddd).format('L')
-
-
     let nextDay = new Date(ddd);
 
     let arrDay = []
@@ -40,7 +35,6 @@ export default function BoxMovie() {
     
     const [currentDay, setCurrentDay] = useState(dayday)
     const { listMovie } = useSelector(state => state.QuanLyPhimReducer)
-    // const { listMovieByDate } = useSelector(state => state.QuanLyPhimReducer)
     const dispatch = useDispatch()
 
 

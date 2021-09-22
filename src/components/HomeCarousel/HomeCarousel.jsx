@@ -28,7 +28,6 @@ export default function HomeCarousel() {
                 return (
                     <Fragment key={item.maBanner}>
                         <div style={{ ...contentStyle, backgroundImage: `url(${item.hinhAnh})` }}>
-                            {/* <img src={item.hinhAnh} alt='anh' className="w-full opacity-0" /> */}
                         </div>
                     </Fragment>
                 )

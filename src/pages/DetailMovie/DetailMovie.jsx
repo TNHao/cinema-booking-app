@@ -20,17 +20,14 @@ import { USER_LOGIN } from 'utils/constants/SettingSystems';
 import { history } from 'App';
 import Swal from 'sweetalert2'
 
-
+// Lấy 10 ngày tiếp theo tính từ ngày hiện tại
 let today = new Date();
 let dd = today.getDate();
 let mm = today.getMonth() + 1;
 let yyyy = today.getFullYear();
-
 today = yyyy + '/' + mm + '/' + dd;
-
 let d = new Date(today);
 let dayday = moment(d).format('L')
-
 let nextDay = new Date(d);
 
 
