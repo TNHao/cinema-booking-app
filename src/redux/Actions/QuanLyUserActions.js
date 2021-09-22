@@ -1,6 +1,6 @@
 import { quanLyUserApi } from "apis/QuanLyUserApi"
 import { history } from "App"
-import { GET_INFO_USER_LOGIN, GET_TYPE_USER, GET_USER, LOG_OUT } from "redux/Types/QuanLyUserTypes"
+import { GET_INFO_USER_LOGIN, GET_TYPE_USER, GET_USER } from "redux/Types/QuanLyUserTypes"
 import { ACCESS_TOKEN, STATUS, USER_LOGIN } from "utils/constants/SettingSystems"
 import Swal from "sweetalert2"
 

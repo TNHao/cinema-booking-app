@@ -1,15 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import './BuyTicket.scss'
 import screen from '../../assets/imgs/screen.png'
 import { useSelector, useDispatch } from 'react-redux'
-import { actGetListTicketRoomApi, actGheDangDat, datGheAction } from 'redux/Actions/QuanLyDatVeActions'
+// import { actGetListTicketRoomApi, datGheAction } from 'redux/Actions/QuanLyDatVeActions'
 import _ from 'lodash'
 import Banner from 'components/Banner/Banner'
 import { history } from 'App'
-import { connection } from 'index'
-import { DAT_GHE } from 'redux/Types/QuanLyDatVeTypes'
 import { Fragment } from 'react'
 import Swal from 'sweetalert2'
+import { actGheDangDat, actGetListTicketRoomApi } from 'redux/actions/QuanLyDatVeActions'
 
 export default function BuyTicket(props) {
 

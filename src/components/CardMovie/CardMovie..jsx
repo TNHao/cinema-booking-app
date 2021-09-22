@@ -1,11 +1,9 @@
 import React from 'react'
 import './CardMovie.scss'
-import { PlayCircleOutlined, StarOutlined } from '@ant-design/icons'
 import { Rate } from 'antd';
-import { USER_LOGIN } from 'utils/constants/SettingSystems';
 import { history } from 'App';
-import { useDispatch, useSelector} from 'react-redux';
-import { actIsTrailer, actTrailer } from 'redux/Actions/CarouselActions/TrailerActions';
+import { useDispatch } from 'react-redux';
+import { actIsTrailer, actTrailer } from 'redux/actions/CarouselActions/TrailerActions';
 import _ from 'lodash'
 
 

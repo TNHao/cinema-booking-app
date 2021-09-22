@@ -6,7 +6,7 @@ import './DetailMovie.scss'
 import moment from 'moment';
 import '../../assets/style/circle.css'
 import { Rate } from 'antd';
-import { actGetInfoShowtimes } from 'redux/Actions/QuanLyRapActions';
+import { actGetInfoShowtimes } from 'redux/actions/QuanLyRapActions';
 import b from '../../assets/imgs/b.png'
 import c from '../../assets/imgs/c.png'
 import anh1 from '../../assets/imgs/anh1.png'

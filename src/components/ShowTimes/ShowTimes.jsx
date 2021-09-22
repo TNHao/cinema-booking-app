@@ -1,9 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { actGetInfoShowtimesCinema } from 'redux/Actions/QuanLyRapActions'
+import { actGetInfoShowtimesCinema } from 'redux/actions/QuanLyRapActions'
 import { Tabs} from 'antd';
-import { NavLink } from 'react-router-dom';
-import moment from 'moment';
 import './Showtimes.scss'
 
 

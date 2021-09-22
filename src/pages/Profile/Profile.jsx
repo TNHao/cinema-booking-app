@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import './Profile.scss'
 import { Tabs } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
-import { actGetInFoUserLogin, actGetTypeUser, actUpdateUserLogin } from 'redux/Actions/QuanLyUserActions';
+import { actGetInFoUserLogin, actGetTypeUser, actUpdateUserLogin } from 'redux/actions/QuanLyUserActions';
 import { withFormik, ErrorMessage } from 'formik';
 import * as Yup from 'yup'
 import moment from 'moment';
@@ -12,7 +12,7 @@ const { TabPane } = Tabs;
 
 function Profile(props) {
 
-    const { userLogin, typeUser, infoUserLogin } = useSelector(state => state.QuanLyUserReducer)
+    const { typeUser, infoUserLogin } = useSelector(state => state.QuanLyUserReducer)
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(actGetTypeUser())
@@ -22,16 +22,13 @@ function Profile(props) {
     const { thongTinDatVe } = infoUserLogin
 
 
-    const callback = (key) => {
+    const callback = () => {
     }
 
 
     const {
         values,
-        touched,
-        errors,
         handleChange,
-        handleBlur,
         handleSubmit,
     } = props;
 

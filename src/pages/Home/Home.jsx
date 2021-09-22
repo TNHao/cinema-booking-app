@@ -1,10 +1,9 @@
 import BoxMovie from 'components/BoxMovie/BoxMovie'
-import CardMovie from 'components/CardMovie/CardMovie.'
 import HomeCarousel from 'components/HomeCarousel/HomeCarousel'
 import HomeMovie from 'components/HomeMovie/HomeMovie'
 import ShowTimes from 'components/ShowTimes/ShowTimes'
 import TrailerMovie from 'components/TrailerMovie/TrailerMovie'
-import React, { useState } from 'react'
+import React from 'react'
 import { useSelector } from 'react-redux'
 import './Home.scss'
 

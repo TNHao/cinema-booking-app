@@ -1,0 +1,142 @@
+$font-primary: 'Poppins',Arial, sans-serif;
+$primary: #3445b4;
+$secondary: #44bef1;
+  
+#sidebar {
+    min-width: 270px;
+    max-width: 270px;
+    background: $primary;
+    color: #fff;
+    transition: all 0.3s;
+    position: relative;
+
+	min-height: 100vh;
+
+	.h6{
+        color: white;
+    }
+
+	&.active{
+        margin-left: -270px;
+    }
+
+	h1{
+        margin-bottom: 20px;
+        font-weight: 700;
+        font-size: 30px;
+        
+		.logo{
+            color: white;
+        
+			span{
+                font-size: 14px;
+                color: $secondary;
+                display: block;
+            }
+        }
+    }
+
+    ul.components{
+        padding: 0;
+    }
+    
+	ul {
+    	li{
+          font-size: 16px;
+         
+		  >ul{
+              margin-left: 10px;
+         
+			  li{
+                  font-size: 14px;
+              }
+          }
+          
+		a{
+			padding: 10px 0;
+			display: block;
+			color: rgba(255,255,255,.6);
+			border-bottom: 1px solid rgba(255,255,255,.1);
+		
+			span{
+				color: $secondary;
+			}
+		
+			&:hover{
+				color: white;
+			}
+		}
+		&.active{
+			> a{
+				background: transparent;
+				color: white;
+			}
+		}
+      }
+    }
+  
+    .custom-menu{
+		display: inline-block;
+		position: absolute;
+		top: 20px;
+		right: 0;
+		margin-right: -20px;
+		transition: all 0.3s;
+		
+		.btn{
+			width: 60px;
+			height: 60px;
+			border-radius: 50%;
+			position: relative;
+
+			color: white;
+
+			svg{
+				margin-right: -40px;
+				margin-bottom: 4px;
+				font-size: 22px;
+			}
+
+			&.btn-primary{
+				background: transparent;
+				border-color: transparent;
+				&:after{
+					z-index: -1;
+					position: absolute;
+					top: 0;
+					left: 0;
+					right: 0;
+					bottom: 0;
+					content: '';
+				transform: rotate(45deg);
+				background: $primary;
+				border-radius: 10px;
+				}
+				&:hover, &:focus{
+					background: transparent !important;
+					border-color: transparent !important;
+					box-shadow: none !important;
+				}
+			}
+		}
+    }
+}
+
+.admin{
+	background-color: white;
+	color: $primary;
+
+	padding: 10px 0;
+	border-radius: 10px;
+	box-shadow: 3px 5px 14px 0px rgba(0,0,0,0.72);
+
+	svg{
+		height: 50px;
+		width: 50px;
+	}
+
+	p{
+		font-size: 15px;
+		font-weight: bold;
+	}
+}

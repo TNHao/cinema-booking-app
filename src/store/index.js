@@ -2,6 +2,9 @@ import { combineReducers, createStore, applyMiddleware } from "redux";
 import reduxThunk from 'redux-thunk'
 import reduxSaga from "redux-saga";
 import rootSaga from "../sagas/rootSaga";
+import AdminReducer from '../redux/Reducers/AdminReducer';
+import MovieScheduleReducer from '../redux/Reducers/MovieScheduleReducer';
+import SelectorDataReducer from '../redux/Reducers/SelectorDataReducer';
 import CarouselReducer from "redux/Reducers/CarouselReducer/CarouselReducer";
 import QuanLyPhimReducer from "redux/Reducers/QuanLyPhimReducer";
 import QuanLyRapReducer from "redux/Reducers/QuanLyRapReducer";
@@ -11,9 +14,10 @@ import QuanLyDatVeReducer from "redux/Reducers/QuanLyDatVeReducer";
 import QuanLyFoodReducer from "redux/Reducers/QuanLyFoodReducer";
 import LoadingReducer from "redux/Reducers/CarouselReducer/LoadingReducer";
 
-
-
 const rootReducer = combineReducers({
+    AdminReducer,
+    MovieScheduleReducer,
+    SelectorDataReducer,
     CarouselReducer,
     QuanLyPhimReducer,
     QuanLyRapReducer,

@@ -6,33 +6,43 @@ import { USER_LOGIN } from "utils/constants/SettingSystems"
 import BackToTopCom from "components/back-to-top/BackToTop"
 
 
-export const HomeTemplate = ({ Component , isPrivate, ...restProps }) => {
+export const HomeTemplate = ({ Component, isPrivate, ...restProps }) => {
 
     const { userLogin } = useSelector(state => state.QuanLyUserReducer)
-    if(isPrivate){
-        if(localStorage.getItem(USER_LOGIN)){
-            console.log('hello');
+    if (isPrivate) {
+        if (userLogin.maLoaiNguoiDung === "QuanTri") {
             return <Route {...restProps} render={(propsRoute) => {
-                return(
+                return (
+                    <Component {...propsRoute} />
+                )
+            }}>
+            </Route>
+        }
+
+        if (localStorage.getItem(USER_LOGIN)) {
+            return <Route {...restProps} render={(propsRoute) => {
+                return (
                     <>
-                        <Header/>
+                        <Header />
                         <Component {...propsRoute} />
-                        <Footer/>
-                        <BackToTopCom/>
+                        <Footer />
+                        <BackToTopCom />
                     </>
                 )
             }}>
             </Route>
         }
-        return <Redirect to="/home" />      
+
+        return <Redirect to="/home" />
     }
+    
     return <Route {...restProps} render={(propsRoute) => {
-        return(
+        return (
             <>
-                <Header/>
+                <Header />
                 <Component {...propsRoute} />
-                <Footer/>
-                <BackToTopCom/>
+                <Footer />
+                <BackToTopCom />
             </>
         )
     }}>

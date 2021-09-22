@@ -5,7 +5,7 @@ import b from '../../assets/imgs/b.png'
 import c from '../../assets/imgs/c.png'
 import d from '../../assets/imgs/d.png'
 import { useSelector, useDispatch } from 'react-redux'
-import { actGetListMovie, actGetListMovieByDate } from 'redux/Actions/QuanLyPhimActions'
+import { actGetListMovie, actGetListMovieByDate } from 'redux/actions/QuanLyPhimActions'
 import moment from 'moment'
 
 

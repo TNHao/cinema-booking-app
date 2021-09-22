@@ -2,7 +2,7 @@ import React, { Fragment, useEffect } from 'react'
 import { Carousel } from 'antd';
 import './HomeCarousel.scss'
 import { useDispatch, useSelector } from 'react-redux';
-import { actGetListBanner } from 'redux/Actions/CarouselActions/CarouselActions';
+import { actGetListBanner } from 'redux/actions/CarouselActions/CarouselActions';
 
 const contentStyle = {
     height: '100vh',

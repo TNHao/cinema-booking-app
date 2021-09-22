@@ -1,29 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import './Banner.scss'
 import { history } from 'App'
 export default function Banner(props) {
     const { thongTinPhim } = props
 
     const [time, setTime] = useState(90)
-    // useEffect(() => {
-    //     time > 0 && setTimeout(() => {
-    //         setTime(time - 1)
-    //     }, 1000)
-    //     if (time === 0) {
-    //         Swal.fire({
-    //             title: 'Da qua thoi gian chon ve vui long chon lai',
-    //             showClass: {
-    //                 popup: 'animate__animated animate__fadeInDown'
-    //             },
-    //             hideClass: {
-    //                 popup: 'animate__animated animate__fadeOutUp'
-    //             }
-    //         }).then(() => {
-    //             window.location.reload();
-    //         })
-
-    //     }
-    // }, [time])
+    
     return (
         <>
             <div className="buy__ticket-header">
