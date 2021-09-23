@@ -33,25 +33,21 @@ import moment from 'moment'
 export default function BoxMovie() {
 
     
-    const [currentDay, setCurrentDay] = useState(dayday)
+    const [currentDay, setCurrentDay] = useState(moment(dayday).format('DD/MM/yyyy'))
     const { listMovie } = useSelector(state => state.QuanLyPhimReducer)
     const dispatch = useDispatch()
 
 
     useEffect(() => {
         dispatch(actGetListMovie())
-        
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     useEffect(() => {
         dispatch(actGetListMovieByDate(currentDay))
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [currentDay])
 
-
-
-    
-
-    
 
     return (
         <div className="container-lg box__movie">
@@ -81,8 +77,8 @@ export default function BoxMovie() {
                         <img src={b} alt="anh" />
                         <span>THEATER</span>
                     </div>
-                    <select>
-                        <option defaultValue="choose theater" value="DEFAULT" selected disabled={true}>Choose theater</option>
+                    <select defaultValue="DEFAULT">
+                        <option defaultValue="choose theater" value="DEFAULT" disabled={true}>Choose theater</option>
                     </select>
                 </div>
                 <div className="content__box-movie">
@@ -95,7 +91,7 @@ export default function BoxMovie() {
                         console.log(e.target.value)
                     }} >
                         {arrDay.map((item, index) => {
-                            return <option value={item} key={index}>{item}</option>
+                            return <option value={moment(item).format('DD/MM/yyyy')} key={index}>{item}</option>
                         })}
                     </select>
                 </div>
@@ -104,8 +100,8 @@ export default function BoxMovie() {
                         <img src={d} alt="anh" />
                         <span>HOUR</span>
                     </div>
-                    <select>
-                        <option defaultValue="choose hour" value="DEFAULT" selected disabled={true}>Choose hour</option>
+                    <select defaultValue="DEFAULT">
+                        <option defaultValue="choose hour" value="DEFAULT" disabled={true}>Choose hour</option>
                     </select>
                 </div>
             </div>

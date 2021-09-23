@@ -49,6 +49,7 @@ export const adminRoutes = [
         path : '/admin/:page',
         Component : Dashboard,
         exact : true,
-        isPrivate : true
+        isPrivate : true,
+        isAdmin : true
     }
 ]

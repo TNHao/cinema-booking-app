@@ -2,9 +2,7 @@ import baseServices from '../services/baseServices'
 
 
 class QuanLyPhim extends baseServices{
-    constructor(){
-        super()
-    }
+
 
     fetchListMovie = () => {
         return this.get('/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP03')

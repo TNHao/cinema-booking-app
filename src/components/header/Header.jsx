@@ -6,9 +6,10 @@ import { history } from 'App'
 import logo from '../../assets/imgs/logo.png'
 import { LOG_OUT } from 'redux/Types/QuanLyUserTypes'
 
+
 import './Header.scss'
 
-export default function Header(props) {
+export default function Header() {
 
     // const userName = JSON.parse(localStorage.getItem(USER_LOGIN))
     const { userLogin } = useSelector(state => state.QuanLyUserReducer)
@@ -28,24 +29,23 @@ export default function Header(props) {
                     history.push('/home')
                 }} />
                 <button className="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                    {/* <span className="navbar-toggler-icon" /> */}
                     <i className="fa fa-bars navbar-toggler-icon pt-1 text-2xl"></i>
                 </button>
                 <div className="collapse navbar-collapse justify-end" id="navbarNavDropdown">
                     <ul className="navbar-nav text-center">
-                        <li className="nav-item my-auto" activeClassName="active">
+                        <li className={`nav-item my-auto ${history.location.pathname === '/home' || history.location.pathname === '/'  ? 'active' : ''}`}  >
                             <i className="fa fa-home py-2 "></i>
                             <NavLink to="/home" className="header-link flex justify-center items-center -mb-0.5 px-10">Home</NavLink>
                         </li>
-                        <li className="nav-item my-auto" activeClassName="active">
+                        <li className="nav-item my-auto" >
                             <a href="#contact">
                                 <i className="fa fa-phone py-2"></i>
                                 <p to="/contact" className="header-link flex justify-center items-center -mb-0.5 px-10 ">Contact</p>
                             </a>                        
                         </li>
-                        <li className="nav-item my-auto" activeClassName="active">
+                        <li className="nav-item my-auto" >
                             <a href="#movie">
-                                <i class="fa fa-film py-2"></i>
+                                <i className="fa fa-film py-2"></i>
                                 <p className="header-link flex justify-center items-center -mb-0.5 px-10 ">Movie</p>
                             </a>                        
                         </li>
@@ -54,9 +54,9 @@ export default function Header(props) {
                                 <div className="items-center flex-shrink-0 lg:flex">
                                     <img src="https://picsum.photos/300" alt="anh" width="60px" height="60px" className="rounded-full mx-auto" />
                                     <div className="dropdown">
-                                        <a className="btn btn-secondary dropdown-toggle bg-transparent border-transparent" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span className="btn btn-secondary dropdown-toggle bg-transparent border-transparent" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             {userLogin.hoTen}
-                                        </a>
+                                        </span>
                                         <div className="dropdown-menu bg-black" aria-labelledby="dropdownMenuLink" style={{ minWidth: '0' }} >
                                             {userLogin.maLoaiNguoiDung === "QuanTri" && <NavLink className="dropdown-item " to="/admin/quan-ly-phim">Admin</NavLink>}
                                             <NavLink className="dropdown-item " to="/profile">Profile</NavLink>

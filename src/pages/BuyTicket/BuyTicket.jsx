@@ -2,13 +2,16 @@ import React, { useEffect } from 'react'
 import './BuyTicket.scss'
 import screen from '../../assets/imgs/screen.png'
 import { useSelector, useDispatch } from 'react-redux'
-// import { actGetListTicketRoomApi, datGheAction } from 'redux/Actions/QuanLyDatVeActions'
+import { actGetListTicketRoomApi, datGheAction, actGheDangDat } from '../../redux/actions/QuanLyDatVeActions'
 import _ from 'lodash'
 import Banner from 'components/Banner/Banner'
 import { history } from 'App'
 import { Fragment } from 'react'
 import Swal from 'sweetalert2'
-import { actGheDangDat, actGetListTicketRoomApi } from 'redux/actions/QuanLyDatVeActions'
+// import { actGheDangDat, actGetListTicketRoomApi } from 'redux/actions/QuanLyDatVeActions'
+import { connection } from 'index'
+import { DAT_GHE } from 'redux/Types/QuanLyDatVeTypes'
+import { DAT_VE_HOAN_TAT } from 'redux/Types/QuanLyDatVeTypes'
 
 export default function BuyTicket(props) {
 
@@ -18,56 +21,60 @@ export default function BuyTicket(props) {
 
     const { thongTinPhim, danhSachGhe } = listTicketRoom
 
-    
-
     // console.log(listGheDangDat)
 
 
-    useEffect(() => {
-        dispatch(actGetListTicketRoomApi(props.match.params.maLichChieu))
+    // useEffect(() => {
+    //     dispatch(actGetListTicketRoomApi(props.match.params.maLichChieu))
 
-        // connection.on('datVeThanhCong', () => {
-        //     dispatch(actGetListTicketRoomApi(props.match.params.maLichChieu))
-        // })
-
-
-        // connection.invoke('loadDanhSachGhe', props.match.params.maLichChieu)
-
-        // // Load danh sách ghế đang đặt từ server về ( luôn luôn lắng nghe ) tự động chạy khi server send cho client
-        // // phương thúc lắng nghe server
-        // connection.on("loadDanhSachGheDaDat", (dsGheKhachDat) => {
-        //     console.log('danhSachGheKhachDat', dsGheKhachDat);
-
-        //     // Buoc 1 :  loai minh ra khoi danh sach
-        //     dsGheKhachDat = dsGheKhachDat.filter(p => p.taiKhoan !== userLogin.taiKhoan)
-        //     // Buoc 2 : gop danh sach ghe khach dat o tat ca user thanh 1 mang chung
-
-        //     console.log(dsGheKhachDat);
-
-        //     let arrGheKhachDat = dsGheKhachDat.reduce((result, item, index) => {
-        //         let arrGhe = JSON.parse(item.danhSachGhe)
-        //         return [...result, ...arrGhe]
-        //     }, [])
-
-        //     arrGheKhachDat = _.uniqBy(arrGheKhachDat, 'maGhe')
+    //     connection.on('datVeThanhCong', () => {
+    //         dispatch(actGetListTicketRoomApi(props.match.params.maLichChieu))
+    //     })
 
 
-        //     // dua du lieu ve redux
-        //     dispatch({
-        //         type: DAT_GHE,
-        //         data: arrGheKhachDat
-        //     })
-        // })
+    //     connection.invoke('loadDanhSachGhe', props.match.params.maLichChieu)
+
+    //     // Load danh sách ghế đang đặt từ server về ( luôn luôn lắng nghe ) tự động chạy khi server send cho client
+    //     // phương thúc lắng nghe server
+    //     connection.on("loadDanhSachGheDaDat", (dsGheKhachDat) => {
+    //         console.log('danhSachGheKhachDat', dsGheKhachDat);
+
+    //         // Buoc 1 :  loai minh ra khoi danh sach
+    //         dsGheKhachDat = dsGheKhachDat.filter(p => p.taiKhoan !== userLogin.taiKhoan)
+    //         // Buoc 2 : gop danh sach ghe khach dat o tat ca user thanh 1 mang chung
+
+    //         console.log(dsGheKhachDat);
+
+    //         let arrGheKhachDat = dsGheKhachDat.reduce((result, item, index) => {
+    //             let arrGhe = JSON.parse(item.danhSachGhe)
+    //             return [...result, ...arrGhe]
+    //         }, [])
+
+    //         arrGheKhachDat = _.uniqBy(arrGheKhachDat, 'maGhe')
 
 
-        // window.addEventListener('beforeunload', clearGhe)
+    //         // dua du lieu ve redux
+    //         dispatch({
+    //             type: DAT_GHE,
+    //             data: arrGheKhachDat
+    //         })
+    //     })
 
-        // return () => {
-        //     clearGhe()
-        //     window.removeEventListener('beforeunload', clearGhe)
-        // }
 
-    }, [])
+    //     window.addEventListener('beforeunload', clearGhe)
+
+    //     // return () => {
+    //     //     clearGhe();
+    //     //     window.removeEventListener('beforeunload', clearGhe)
+    //     // }
+
+    //     dispatch({
+    //         type : DAT_VE_HOAN_TAT
+    //     })
+    //     // eslint-disable-next-line react-hooks/exhaustive-deps
+    // }, [])
+
+
 
 
     // const clearGhe = () => {
@@ -97,7 +104,7 @@ export default function BuyTicket(props) {
             }
 
             let gheDaDuocDat = ''
-            if (userLogin.taiKhoan == ghe.taiKhoanNguoiDat) {
+            if (userLogin.taiKhoan === ghe.taiKhoanNguoiDat) {
                 gheDaDuocDat = 'gheDaDuocDat'
             }
 
@@ -164,13 +171,13 @@ export default function BuyTicket(props) {
                         <div className="col-span-3 md:col-span-4 my-auto ml-6">
                             <span>Yout Seats</span>
                             <div className="flex">
-                                {listGheDangDat == false ? <p>Empty</p> : _.sortBy(listGheDangDat, ['stt']).map((item, index) => {
-                                    return <p>{item.tenGhe}, </p>
+                                {listGheDangDat.length === 0 ? <p>Empty</p> : _.sortBy(listGheDangDat, ['stt']).map((item, index) => {
+                                    return <p key={index}>{item.tenGhe}, </p>
                                 })}</div>
                         </div>
                         <div className="col-span-3 mr-6 md:col-span-4 my-auto">
                             <span>Total Price</span>
-                            <p>{listGheDangDat == false ? '$0' : listGheDangDat.reduce((sum, item, index) => {
+                            <p>{listGheDangDat === false ? '$0' : listGheDangDat.reduce((sum, item, index) => {
                                 return sum += item.giaVe
                             }, 0).toLocaleString() + "$"}</p>
                         </div>

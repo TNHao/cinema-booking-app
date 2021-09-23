@@ -8,6 +8,7 @@ import * as Yup from 'yup'
 import moment from 'moment';
 import { connect } from 'react-redux'
 
+
 const { TabPane } = Tabs;
 
 function Profile(props) {
@@ -17,7 +18,7 @@ function Profile(props) {
     useEffect(() => {
         dispatch(actGetTypeUser())
         dispatch(actGetInFoUserLogin())
-    }, [])
+    }, [dispatch])
 
     const { thongTinDatVe } = infoUserLogin
 
@@ -32,9 +33,12 @@ function Profile(props) {
         handleSubmit,
     } = props;
 
+    console.log(values);
+
 
     return (
-        <div className="container-lg" style={{ paddingTop: '15rem' }}>
+        <div className="profile" style={{backgroundColor : 'rgb(29, 29, 43)', paddingBottom:'5rem'}}>
+            <div className="container-lg" style={{ paddingTop: '15rem' }}>
             <div className="main-body">
                 <div className="row">
                     <div className="col-lg-4">
@@ -44,10 +48,6 @@ function Profile(props) {
                                     <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="Admin" className="rounded-circle p-1 bg-primary" width={110} />
                                     <div className="mt-3">
                                         <h4>{infoUserLogin?.hoTen}</h4>
-                                        {/* <p className="text-secondary mb-1">Full Stack Developer</p>
-                                        <p className="text-muted font-size-sm">Bay Area, San Francisco, CA</p>
-                                        <button className="btn btn-primary">Follow</button>
-                                        <button className="btn btn-outline-primary">Message</button> */}
                                     </div>
                                 </div>
                                 <hr className="my-4" />
@@ -77,7 +77,7 @@ function Profile(props) {
                             <Tabs defaultActiveKey="1" onChange={callback} centered>
                                 <TabPane tab="Home" key="1">
                                     <div className="outer-wrapper">
-                                        <div className="s-wrap s-type-1" role="slider">
+                                        <div className="s-wrap s-type-1" role="slider" aria-valuenow="">
                                             <input type="radio" id="s-1" name="slider-control" defaultChecked="checked" />
                                             <input type="radio" id="s-2" name="slider-control" />
                                             <input type="radio" id="s-3" name="slider-control" />
@@ -201,12 +201,12 @@ function Profile(props) {
                                             <tbody>
                                                 {thongTinDatVe?.map((item, index) => {
                                                     return (
-                                                        <tr>
+                                                        <tr key={index}>
                                                             <th scope="row">{item.maVe}</th>
                                                             <td>{item.tenPhim}</td>
                                                             <td>{moment(item.ngayDat).format('L')} - {moment(item.ngayDat).format('LT')}</td>
                                                             <td className="flex">{item?.danhSachGhe.map((ghe, index) => {
-                                                                return <p>{ghe.tenGhe + ","}</p>
+                                                                return <p key={index}>{ghe.tenGhe + ","}</p>
                                                             })}</td>
                                                         </tr>
                                                     )
@@ -221,12 +221,15 @@ function Profile(props) {
                 </div>
             </div>
         </div>
+        </div>
     )
 }
 
 const ProfileWithFormik = withFormik({
+    enableReinitialize : true,
     mapPropsToValues: (props) => {
         let { infoUserLogin, userLogin } = props
+
         return {
             taiKhoan: infoUserLogin.taiKhoan,
             matKhau: infoUserLogin.matKhau,

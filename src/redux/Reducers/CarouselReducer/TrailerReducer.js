@@ -5,7 +5,7 @@ const initialState = {
     trailer : ''
 }
 
-export default (state = initialState, action) => {
+const TrailerReducer = (state = initialState, action) => {
     switch (action.type) {
 
     case IS_TRAILER:
@@ -17,3 +17,5 @@ export default (state = initialState, action) => {
         return state
     }
 }
+
+export default TrailerReducer

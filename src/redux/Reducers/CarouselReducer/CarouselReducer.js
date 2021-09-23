@@ -4,7 +4,7 @@ const initialState = {
     listBanner : []
 }
 
-export default (state = initialState, action) => {
+const CarouselReducer = (state = initialState, action) => {
     switch (action.type) {
         case GET_LIST_BANNER:
             return {...state, listBanner : action.data}
@@ -13,3 +13,5 @@ export default (state = initialState, action) => {
             return state
     }
 }
+
+export default CarouselReducer

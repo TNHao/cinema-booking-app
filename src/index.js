@@ -24,25 +24,34 @@ import { DOMAIN } from 'utils/constants/SettingSystems';
 // withUrl : backend cung cấp , giống API , nó sẽ luôn luôn kết nối với cái API nay
 
 // Đoạn code để kết nối đến server lắng nghe sự kiện từ server
-export const connection = new signalR.HubConnectionBuilder().withUrl(`${DOMAIN}/DatVeHub`).configureLogging(signalR.LogLevel.Information).build();
+// export const connection = new signalR.HubConnectionBuilder().withUrl(`${DOMAIN}/DatVeHub`).configureLogging(signalR.LogLevel.Information).build();
 // connection : trao đổi dữ liệu với server,lấy dữ liệu ỏ đưa dữ liệu lên server
 
 
 // Đây làm hàm bất đồng bộ ( Đảm bảo mọi giao thức kêt nối được thiết lập rồi thì mới render giao diện)
-connection.start().then(
-  () => {
-    ReactDOM.render(
-      <Provider store={store}>
-        {/* <React.StrictMode> */}
-          <App />
-        {/* </React.StrictMode> */}
-      </Provider>,
-      document.getElementById('root')
-    );
-  }
-).catch( err => {
-  console.log(err)
-})
+// connection.start().then(
+//   () => {
+//     ReactDOM.render(
+//       <Provider store={store}>
+//         {/* <React.StrictMode> */}
+//           <App />
+//         {/* </React.StrictMode> */}
+//       </Provider>,
+//       document.getElementById('root')
+//     );
+//   }
+// ).catch( err => {
+//   console.log(err)
+// })
+
+ReactDOM.render(
+        <Provider store={store}>
+          {/* <React.StrictMode> */}
+            <App />
+          {/* </React.StrictMode> */}
+        </Provider>,
+        document.getElementById('root')
+      );
 
 
 

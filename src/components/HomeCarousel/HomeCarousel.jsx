@@ -20,6 +20,7 @@ export default function HomeCarousel() {
 
     useEffect(() => {
         dispatch(actGetListBanner())
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (

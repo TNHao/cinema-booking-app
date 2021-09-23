@@ -15,12 +15,13 @@ export default function Food(props) {
 
 
 
-    const { thongTinPhim, danhSachGhe } = listTicketRoom
+    const { thongTinPhim} = listTicketRoom
 
     useEffect(() => {
         dispatch(actGetListTicketRoomApi(props.match.params.maLichChieu))
         dispatch(actGetListFoodApi())
-    }, [])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [dispatch])
 
     const tongTien = (array) => {
         return array.reduce((sum, item) => {
@@ -45,9 +46,9 @@ export default function Food(props) {
                     <div className="grid grid-cols-2 sm:grid-cols-3">
                         <div className="col-span-2 sm:col-span-3 lg:col-span-2 lg:mr-8">
                             <div className="grid grid-cols-2 sm:grid-cols-3 gap-6">
-                                {listFood?.map((item) => {
+                                {listFood?.map((item, index) => {
                                     return (
-                                        <div className="food__card">
+                                        <div className="food__card" key={index}>
                                             <img src={food} alt="food" />
                                             <div className="food__card-footer">
                                                 <span className="food__card-name">{item.name}</span>

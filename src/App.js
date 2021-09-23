@@ -15,13 +15,15 @@ export const history = createBrowserHistory()
 function App() {
 
   const renderRouter = (routes, Layout) => {   
-    return routes.map(route => {
-      const { path, exact , Component, isPrivate } = route
+    return routes.map((route, index) => {
+      const { path, exact , Component, isPrivate, isAdmin } = route
       return <Layout
+        key={index}
         path = {path}
         exact = {exact}
         Component = {Component}
         isPrivate = {isPrivate}
+        isAdmin = {isAdmin}
       />
     })
   }
@@ -30,8 +32,7 @@ function App() {
   return (
     <Router history={history}>
       <Loading/>
-      <Switch>
-        
+      <Switch>     
         <LoginTemPlate path="/login" exact Component={Login}/>
         <LoginTemPlate path="/register" exact Component={Register}/>
         {renderRouter(clientRoutes, HomeTemplate)} 

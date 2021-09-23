@@ -1,10 +1,29 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './Banner.scss'
 import { history } from 'App'
+import Swal from 'sweetalert2'
 export default function Banner(props) {
     const { thongTinPhim } = props
-
     const [time, setTime] = useState(90)
+    useEffect(() => {
+        time > 0 && setTimeout(() => { 
+            setTime(time - 1)
+        },1000)
+
+        if(time === 0){
+            Swal.fire({
+                title: "Đã hết thời gian chọn vé.Vui lòng chọn lại",
+                icon: "error",
+                button: "OK",
+            }).then(() => {
+                setTime(90);
+                history.goBack()
+            })
+        }
+        return () => {
+            clearTimeout();
+        }
+    }, [time])
     
     return (
         <>

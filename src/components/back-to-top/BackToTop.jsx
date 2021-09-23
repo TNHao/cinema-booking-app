@@ -11,7 +11,7 @@ export default function BackToTopCom() {
         speed={1500}
         easing="easeInOutQuint"
         >
-            <i class="fa fa-angle-double-up"></i>
+            <i className="fa fa-angle-double-up"></i>
         </BackToTop>
     )
 }

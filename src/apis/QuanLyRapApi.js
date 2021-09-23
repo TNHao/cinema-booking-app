@@ -3,9 +3,7 @@ import baseServices from "services/baseServices";
 
 
 class QuanLyRapApi extends baseServices{
-    constructor(){
-        super()
-    }
+
 
     fetchListTheater = () => {
         return this.get('/api/QuanLyRap/LayThongTinHeThongRap')

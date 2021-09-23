@@ -43,7 +43,6 @@ export default function Sidebar() {
                         <p className="mb-0">{userLogin.hoTen}</p>
                     </div>
                 </div>
-
                 <ul className="list-unstyled components mt-4">
                     <li className={`mb-3 ${param.page === "quan-ly-phim" ? "active" : ""}`}>
                         <Link to="quan-ly-phim" ><span className="fa fa-film mr-3" /> Quản lý phim</Link>

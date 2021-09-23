@@ -1,7 +1,4 @@
 class ThongTinDatve{
-    constructor(){
-
-    }
     maLichChieu = 0;
     danhSachVe = []
 }

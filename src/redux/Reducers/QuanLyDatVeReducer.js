@@ -6,7 +6,7 @@ const initialState = {
     listGheKhachDat : []
 }
 
-export default (state = initialState, action) => {
+const QuanLyDatVeReducer = (state = initialState, action) => {
     switch (action.type) {
 
     case GET_LIST_TICKET_ROOM:
@@ -32,3 +32,5 @@ export default (state = initialState, action) => {
         return state
     }
 }
+
+export default QuanLyDatVeReducer

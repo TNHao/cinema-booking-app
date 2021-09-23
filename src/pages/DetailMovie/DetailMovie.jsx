@@ -53,18 +53,9 @@ export default function DetailMovie(props) {
 
 
     useEffect(() => {
-        // dispatch(actGetDetailMovie(props.match.params.idMovie))
         dispatch(actGetInfoShowtimes(props.match.params.idMovie))
-    }, [])
-
-
-
-    // let arrCumRapChieu = {}
-    // arrCumRapChieu = listShowtimes.heThongRapChieu.find(p => p.maHeThongRap === cinema)
-
-    // console.log(arrCumRapChieu)
-    // console.log(listShowtimes.heThongRapChieu?.find(p => p.maHeThongRap === cinema))
-
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [dispatch])
 
     return (
         <>
@@ -150,7 +141,8 @@ export default function DetailMovie(props) {
                 </div>
             </div>
         </div>
-        <div id="booking" className="detail__movie-content container-lg grid grid-cols-12 mt-40">
+        <div style={{ backgroundColor : 'rgb(29, 29, 43)'}}>
+        <div id="booking" className="detail__movie-content container-lg grid grid-cols-12 pt-40 pb-20">
                     <div className="col-start-1 col-span-12 md:col-span-8">
                         <div className="detail__movie-mota">
                             <h1 className="text-center text-3xl">SUMERY</h1>
@@ -183,7 +175,7 @@ export default function DetailMovie(props) {
                             </div>
                         </div>
                         <div id="cinema" className="detail__movie-cinema">
-                            {listShowtimes.heThongRapChieu?.find(p => p.maHeThongRap === cinema) == undefined ? '' : listShowtimes.heThongRapChieu?.find(p => p.maHeThongRap === cinema).cumRapChieu?.map((item, index) => {
+                            {listShowtimes.heThongRapChieu?.find(p => p.maHeThongRap === cinema) === undefined ? '' : listShowtimes.heThongRapChieu?.find(p => p.maHeThongRap === cinema).cumRapChieu?.map((item, index) => {
                                 return (
                                     <div className="ShowTime_Ticket row" key={index}>
                                         <div className="ShowTime_Branch col-12 col-sm-6 col-lg-5 my-auto">
@@ -199,12 +191,10 @@ export default function DetailMovie(props) {
                                         </div>
                                         <div className="ShowTime_Hours col-12 col-sm-6 col-lg-7 mt-3 mt-lg-0" style={{ overflow: 'auto', cursor: 'pointer' }} >
                                             <div className="p-4" style={{ whiteSpace: 'nowrap', }}>
-                                                {/* {arrDay.map((item, index) => {
-                                                return <button className="btn btn-danger">{item}</button>
-                                            })} */}
                                                 {item.lichChieuPhim?.map((item, index) => {
+
                                                     // thay bang currentDay
-                                                    if (moment(item.ngayChieuGioChieu).format('L') > moment(new Date('03/01/2021')).format('L')) {
+                                                    if (moment(item.ngayChieuGioChieu).format('L') > moment(new Date(currentDay)).format('L')) {
                                                         return <button key={index} onClick={() => {
                                                             if (localStorage.getItem(USER_LOGIN)) {
                                                                 Swal.fire({
@@ -229,6 +219,8 @@ export default function DetailMovie(props) {
                                                                 })
                                                             }
                                                         }}>{moment(item.ngayChieuGioChieu).format('LT')}</button>
+                                                    }else{
+                                                        return '';
                                                     }
                                                 })}
                                             </div>
@@ -257,6 +249,9 @@ export default function DetailMovie(props) {
                         </div>
                     </div>
                 </div>
+        </div>
         </>
     )
 }
+
+

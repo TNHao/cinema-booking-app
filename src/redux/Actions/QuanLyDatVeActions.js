@@ -1,6 +1,5 @@
 import { quanLyDatVe } from "apis/QuanLyDatVeApi"
 import { connection } from "index"
-import _ from "lodash"
 import { DISPLAY_LOADING, HIDING_LOADING } from "redux/Types/CarouselTypes/LoadingTypes"
 import { DAT_VE_HOAN_TAT, GET_LIST_TICKET_ROOM, GHE_DANG_DAT } from "redux/Types/QuanLyDatVeTypes"
 import { STATUS } from "utils/constants/SettingSystems"
@@ -38,7 +37,7 @@ export const actDatVeApi = (thongTinDatVe) => {
             dispatch({                
                 type : DISPLAY_LOADING
             })
-            let { data, status } = await quanLyDatVe.fetchDatVe(thongTinDatVe)
+            await quanLyDatVe.fetchDatVe(thongTinDatVe)
             
             await dispatch(actGetListTicketRoomApi(thongTinDatVe.maLichChieu))
             await dispatch({
@@ -49,12 +48,12 @@ export const actDatVeApi = (thongTinDatVe) => {
                 type : HIDING_LOADING
             })
 
-            // let userLogin = getState().QuanLyUserReducer.userLogin
+            let userLogin = getState().QuanLyUserReducer.userLogin
 
             // connection.invoke('datGheThanhCong', userLogin, thongTinDatVe.maLichChieu)
 
             Swal.fire({
-                title: "Thêm phim thành công",
+                title: "Đặt vé thành công",
                 icon: "success",
                 button: "OK",
             }).then(
@@ -69,20 +68,20 @@ export const actDatVeApi = (thongTinDatVe) => {
     }
 }
 
-export const datGheAction = (ghe, maLichChieu) => {
-    return async (dispatch, getState) => {
+// export const datGheAction = (ghe, maLichChieu) => {
+//     return async (dispatch, getState) => {
 
-        await dispatch({
-            type : GHE_DANG_DAT,
-            data : ghe
-        })
+//         await dispatch({
+//             type : GHE_DANG_DAT,
+//             data : ghe
+//         })
 
-        let listGheDangDat = getState().QuanLyDatVeReducer.listGheDangDat;
-        let taiKhoan = getState().QuanLyUserReducer.userLogin.taiKhoan;
+//         let listGheDangDat = getState().QuanLyDatVeReducer.listGheDangDat;
+//         let taiKhoan = getState().QuanLyUserReducer.userLogin.taiKhoan;
 
 
-        listGheDangDat = JSON.stringify(listGheDangDat)
+//         listGheDangDat = JSON.stringify(listGheDangDat)
 
-        connection.invoke('datGhe', taiKhoan, listGheDangDat, maLichChieu)
-    }
-}
+//         connection.invoke('datGhe', taiKhoan, listGheDangDat, maLichChieu)
+//     }
+// }

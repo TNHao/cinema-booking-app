@@ -4,7 +4,6 @@ import { Rate } from 'antd';
 import { history } from 'App';
 import { useDispatch } from 'react-redux';
 import { actIsTrailer, actTrailer } from 'redux/actions/CarouselActions/TrailerActions';
-import _ from 'lodash'
 
 
 export default function CardMovie({cardMovie}) {

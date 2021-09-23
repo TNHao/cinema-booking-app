@@ -36,7 +36,7 @@ export const actLogin = (userLogin) => {
 export const actRegister = (userRegister) => {
     return async dispatch => {
         try{
-            let { data, status } = await quanLyUserApi.fetchUserRegister(userRegister)
+            await quanLyUserApi.fetchUserRegister(userRegister)
             await Swal.fire({
                 icon: 'success',
                 title: 'Register successful',
@@ -85,7 +85,7 @@ export const actGetInFoUserLogin = () => {
 export const actUpdateUserLogin = (userLoginUpdate) => {
     return async dispatch => {
         try{
-            let { data , status } = await quanLyUserApi.updateUserLogin(userLoginUpdate)
+            let {status } = await quanLyUserApi.updateUserLogin(userLoginUpdate)
             if( status === STATUS.SUCCESS){
                 await dispatch(actGetInFoUserLogin())
                 await Swal.fire({

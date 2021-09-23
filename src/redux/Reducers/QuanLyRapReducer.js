@@ -6,7 +6,7 @@ const initialState = {
     listShowtimesCinema : []
 }
 
-export default (state = initialState, action) => {
+const QuanLyRapReducer = (state = initialState, action) => {
     switch (action.type) {
 
     case GET_LIST_INFOR_THEATER:
@@ -20,3 +20,4 @@ export default (state = initialState, action) => {
         return state
     }
 }
+export default QuanLyRapReducer

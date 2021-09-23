@@ -44,7 +44,7 @@ export default function TabsCinema(props) {
                                                                     if(moment(lichChieu.ngayChieuGioChieu).format('L') > moment(new Date('03/01/2021')).format('L')){
                                                                         return (
                                                                             <div key={index}>
-                                                                                <NavLink to="/" className="text-blue-800">{  moment(lichChieu.ngayChieuGioChieu).format('L')  }</NavLink>
+                                                                                <NavLink to="/" className="text-blue-800">{  moment(lichChieu.ngayChieuGioChieu).format('L')}</NavLink>
                                                                             </div>
                                                                             
                                                                         )

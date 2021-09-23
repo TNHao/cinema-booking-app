@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect} from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { actGetInfoShowtimesCinema } from 'redux/actions/QuanLyRapActions'
 import { Tabs} from 'antd';
@@ -10,7 +10,8 @@ const { TabPane } = Tabs;
 export default function ShowTimes(props) {
 
 
-    const [tabPosition, setTabPosition] = useState('left')
+    // const [tabPosition, setTabPosition] = useState('left')
+    const tabPosition = 'left'
     
     const { listShowtimesCinema } = useSelector(state => state.QuanLyRapReducer)
     const { listMovieByDate } = useSelector(state => state.QuanLyPhimReducer)
@@ -19,6 +20,7 @@ export default function ShowTimes(props) {
 
     useEffect(() => {
         dispatch(actGetInfoShowtimesCinema())
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
 
@@ -27,13 +29,13 @@ export default function ShowTimes(props) {
         <Tabs tabPosition={tabPosition} style={{height: '1000px', overflow: 'scroll'}} >
             {listShowtimesCinema?.map((item, index) => {
                 return (
-                    <TabPane tab={<img src={item.logo} className="rounded-full w-12 h-12" />} key={index}>
+                    <TabPane tab={<img src={item.logo} className="rounded-full w-12 h-12" alt="logo" />} key={index}>
                         <Tabs tabPosition={tabPosition}>
                             {item.lstCumRap?.map((cumRap, index) => {
                                 return (
                                     <TabPane tab={
                                         <div className="flex">
-                                            <img src={cumRap.hinhAnh ? cumRap.hinhAnh : `https://picsum.photos/400`} className="w-20 h-20" />
+                                            <img src={cumRap.hinhAnh ? cumRap.hinhAnh : `https://picsum.photos/400`} className="w-20 h-20" alt="logo" />
                                             <div className="text-left ml-4">
                                                 <h1 className="text-black-900">{cumRap.tenCumRap}</h1>
                                                 <p>{cumRap.diaChi.length > 50 ? cumRap.diaChi.substring(1,50) + '...' : cumRap.diaChi}</p>

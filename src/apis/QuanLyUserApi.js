@@ -4,9 +4,6 @@ import baseServices from "services/baseServices";
 
 
 class QuanLyUserApi extends baseServices{
-    constructor(){
-        super()
-    }
 
     fetchUserLogin = (userLogin) => {
         return this.post('/api/QuanLyNguoiDung/DangNhap', userLogin)

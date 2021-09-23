@@ -4,7 +4,7 @@ const initialState = {
     listFood : [],
 }
 
-export default (state = initialState, action) => {
+const QuanLyFoodReducer = (state = initialState, action) => {
     switch (action.type) {
 
     case GET_LIST_FOOD:
@@ -27,3 +27,5 @@ export default (state = initialState, action) => {
         return state
     }
 }
+
+export default QuanLyFoodReducer

@@ -72,7 +72,7 @@ export default function HomeMovie() {
             pageSize : filter.pageSize,
             total : listMoviePagination.totalCount
         })  
-        
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [filter])
 
     const renderListMovie = () => {
