@@ -46,16 +46,17 @@ const editable = (props) => ({
                     props.dispatch(actFileUpload(null));
                 });
 
-        // await props.managementService.addNewData(formData);
-        await axios({
-            url: `${DOMAIN}/api/QuanLyPhim/ThemPhimUploadHinh`,
-            method: 'POST',
-            data: formData,
-            headers: {
-                'Authorization': 'Bearer ' + localStorage.getItem(ACCESS_TOKEN),
-                'TokenCybersoft': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5Mb3AiOiJGcm9udCBFbmQgNjgiLCJIZXRIYW5TdHJpbmciOiIwNS8wMy8yMDIyIiwiSGV0SGFuVGltZSI6IjE2NDY0Mzg0MDAwMDAiLCJuYmYiOjE2MTc5ODc2MDAsImV4cCI6MTY0NjU4NjAwMH0.rmNHCCoHWfPP3VnrGmrmn3_CDUS9NnNwcEeBD_71ylk'
-            }
-        }).then(() => successAlert('Thêm phim thành công'))
+        // await axios({
+        //     url: `${DOMAIN}/api/QuanLyPhim/ThemPhimUploadHinh`,
+        //     method: 'POST',
+        //     data: formData,
+        //     headers: {
+        //         'Authorization': 'Bearer ' + localStorage.getItem(ACCESS_TOKEN),
+        //         'TokenCybersoft': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5Mb3AiOiJGcm9udCBFbmQgNjgiLCJIZXRIYW5TdHJpbmciOiIwNS8wMy8yMDIyIiwiSGV0SGFuVGltZSI6IjE2NDY0Mzg0MDAwMDAiLCJuYmYiOjE2MTc5ODc2MDAsImV4cCI6MTY0NjU4NjAwMH0.rmNHCCoHWfPP3VnrGmrmn3_CDUS9NnNwcEeBD_71ylk'
+        //     }
+        // })
+        await props.managementService.addNewData(formData)
+            .then(() => successAlert('Thêm phim thành công'))
             .catch(() => errorAlert());
 
         return props.managementService.fetchMovieList()
