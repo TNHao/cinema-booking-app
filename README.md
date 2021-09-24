@@ -42,6 +42,11 @@ Người quản trị có thể:
 - AntD
 - Glassmorphism
 - Material UI, Material-table
+- react-slick
+- moment
+- lodash
+- react-back-to-top-button
+
 
 ## Author
 
