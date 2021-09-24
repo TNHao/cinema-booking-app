@@ -1,0 +1,113 @@
+// variable color
+$color-black-0: #29303b; // default
+
+$color-white-0: #fff; //default
+
+$color-red-0:#ec5252;
+$color-red-1: #521822;
+$color-red-2:#992337;
+
+$color-purple: #6e1a52;
+
+$color-gray-0:#949494;
+$color-gray-1: rgba(20, 23, 28, .05);
+$color-gray-2: #a1a7b3;
+$color-gray-3: #cacbcc;
+$color-gray-4: #686f7a;
+$color-gray-5:#F7F8FA;
+$color-gray-6:#dedfe0;
+$color-gray-7:#4a4a4a;
+
+$color-black-light:#505763;
+$color-black-dark: rgba(20, 23, 28, .1);
+
+$color-white-cream:#f2f3f5;
+
+$color-yellow: #F4C150;
+$color-blue:#007791;
+$color-trans:transparent;
+
+$color-orange-0:#FB4226;
+$color-dark-0:#222;
+
+//custom
+$color-blue-1: rgb(65, 143, 231);
+$color-bg-header : rgba(255, 255, 255, .95);
+
+// Do dai
+$w : 100%;
+$h : 100%;
+$h-1 : 800px;
+
+// variable font-size
+$fs-0: 15px; //default
+$fs-1: 13px;
+$fs-2: 20px;
+$fs-3: 24px;
+$fs-4: 40px;
+
+$fs-5: 11px;
+$fs-6: 12px;
+$fs-7: 14px;
+$fs-8: 16px;
+$fs-9: 25px;
+$fs-10: 32px;
+
+// font family
+$font-family-sf-text: 'SFUIText';
+$font-family-sf-display: 'SF UI Display';
+
+//variable margin
+$mg-0: 2px;
+$mg-1: 10px;
+$mg-2: 25px;
+
+$mg-3: 50px;
+$mg-4: 70px;
+$mg-5: 20px;
+$mg-6: 15px;
+$mg-8: 30px;
+$mg-7: 30%;
+
+//variable border-radius
+$border-radius: 2px;
+
+//variable padding
+$pd-0: 5px; //default
+$pd-1: 10px;
+$pd-2: 20px;
+$pd-3: 80px;
+$pd-4: 26%;
+
+
+//variable line-height
+$line-height-0: 1.43; //default
+
+$line-height-1: 1.8;
+$line-height-2: 2.3;
+$line-height-3: 1.6;
+
+//variable font-weight
+$fw-normal: normal;
+$fw-bold-0: 600;
+$fw-bold-1: 700;
+$fw-bold: bold;
+
+//variable border-radius
+$border-radius-0: 4px;
+$border-radius-1: 50%;
+
+$width-0: 30px;
+$height-0: 30px;
+
+//break points
+$breakpoints:(
+    'extra-large': 1200px,
+    'large' : 992px,
+    'medium' : 768px,
+    'small' : 576px,
+    'iphone-plus' : 414px,
+    'iphone' : 375px,
+    '1024px' : 1024px,
+    '855px' : 855px
+)

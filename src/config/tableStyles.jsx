@@ -1,4 +1,5 @@
 import DatetimePicker from "components/DatetimePicker/DatetimePicker";
+import ImageUploadBtn from "components/imageUploadBtn/ImageUploadBtn";
 
 export const filmManagementTableStyle = [
     {
@@ -12,13 +13,18 @@ export const filmManagementTableStyle = [
         sorting: false,
         searchable: false,
         editable: 'always',
-        render: row => <a href={row.trailer}>Watch on youtube</a>
+        render: row => <a href={row.trailer}>Watch on youtube</a>,
+        validate: row => !row.trailer ? { isValid: false, helperText: 'Trailer không được trống' } : true
     },
     {
         title: 'Hình ảnh',
+        field: 'hinhAnh',
         sorting: false,
         searchable: false,
         editable: 'always',
+        editComponent: (props) => {
+            return <ImageUploadBtn {...props} />
+        },
         render: row => <img height="70px" width="70px" alt={row.tenPhim} src={row.hinhAnh} />
     },
     {
@@ -43,14 +49,14 @@ export const filmManagementTableStyle = [
                     placeholder="Mô tả"
                     className="w-100"
                     onChange={e => props.onChange(e.target.value)}
+                    style={{ 'height': '85px', 'border': '1px solid black' }}
                 />
             )
         },
         render: row => {
             if (row.moTa.length <= 60) return row.moTa;
             return `${row.moTa.slice(0, 60)}...`;
-        },
-        validate: row => (!row.moTa || row.moTa.length < 30) ? { isValid: false, helperText: 'Mô tả nên dài hơn 30 kí tự' } : true
+        }
     },
     {
         title: 'Ngày khởi chiếu',
@@ -60,6 +66,7 @@ export const filmManagementTableStyle = [
         editComponent: (props) => {
             return (<DatetimePicker {...props} />)
         },
+        // type: 'datetime'
         render: row => {
             let date = new Date(row.ngayKhoiChieu);
             let dateString = date.toLocaleTimeString().slice(0, 5) + ", " + date.toLocaleDateString();
@@ -75,7 +82,7 @@ export const filmManagementTableStyle = [
             if (!row.danhGia)
                 return { isValid: false, helperText: 'Điểm đánh giá không được trống' };
 
-            const danhGia = Number(row.danhGia); 
+            const danhGia = Number(row.danhGia);
 
             if (isNaN(danhGia) || danhGia < 0 || danhGia > 10)
                 return { isValid: false, helperText: 'Điểm đánh giá phải từ 0 đến 10' };
@@ -159,8 +166,26 @@ export const userManagementTableStyle = [
         validate: row => {
             if (!row.maLoaiNguoiDung)
                 return { isValid: false, helperText: 'Hãy chọn loại người dùng' };
-            
+
             return true;
         }
     },
 ];
+
+export const scheduleManagementTableStyle = [
+    {
+        title: '',
+        render: row => <img height="50px" width="50px" alt={row.tenHeThongRap} src={row.logo} />,
+        sorting: false
+    },
+    { title: 'Hệ thống rạp', field: 'tenHeThongRap' },
+    { title: 'Cụm rạp', field: 'tenCumRap' },
+    { title: 'Rạp', field: 'tenRap' },
+    {
+        title: 'Ngày chiếu',
+        field: "ngayChieuGioChieu",
+        searchable: false,
+        type: 'datetime'
+    },
+    { title: 'Giá vé', field: 'giaVe' }
+]

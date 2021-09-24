@@ -1,0 +1,26 @@
+@import '../../utils/main';
+
+.home {
+    background-color: rgb(29, 29, 43);
+    padding-bottom: 5rem;
+    .home__trailer{
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 100vh;
+        z-index: 99;
+    }
+    
+}
+
+@include responsive('iphone-plus'){
+    .home{
+        .home__showtime-title{
+            display: none;
+        }
+        .home__showtime{
+            display: none;
+        }
+        
+    }
+}

@@ -1,0 +1,3 @@
+export const GET_LIST_FOOD = 'GET_LIST_FOOD'
+export const ADD_FOOD_TO_CART = 'ADD_FOOD_TO_CART'
+export const MINUS_FOOD_TO_CART = 'MINUS_FOOD_TO_CART'

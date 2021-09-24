@@ -1,0 +1,264 @@
+@import '../../utils/main';
+
+.buy__ticket{
+    width: 100%;
+    height: 100%;
+    .buy__ticket-content{
+        padding-top: 5rem;
+        background-color: rgb(29, 29, 43);
+        .buy__ticket-seat{
+            padding: 0;
+            p{
+                font-size: 3rem;
+                color: white;
+                width: 350px;
+                border-top: 1px solid white;
+                border-bottom: 1px solid white;
+            }
+            .seat{    
+                margin-top: 5rem;      
+                overflow-x: scroll;
+                white-space: nowrap;        
+                .seat__container{
+                    /* Ghe thuong*/
+                    .ghe {
+                        width : 40px;
+                        height : 40px;
+                        border-radius: 10px;
+                        cursor: pointer;
+                        margin: 15px;
+                        background-color: gray;
+                        color: white;
+                    }
+    
+                    /*ghe da dat*/
+                    .gheDaDat {
+                        width : 40px;
+                        height : 40px;
+                        border-radius: 10px;
+                        cursor: no-drop;
+                        margin: 15px;
+                        background-color: rgb(201, 34, 34) ;
+                        color: white;
+                    }
+    
+                    /*ghe dang dat*/
+                    .gheDangDat {
+                        width : 40px;
+                        height : 40px;
+                        border-radius: 10px;
+                        cursor: pointer;
+                        margin: 15px;
+                        background-color: rgb(39, 202, 39) !important;
+                        color: white;
+                    }
+    
+                    .gheVIP {
+                        width : 40px;
+                        height : 40px;
+                        border-radius: 10px;
+                        cursor: pointer;
+                        margin: 15px;
+                        background-color: rgb(235, 120, 13);
+                        color: white;
+                    }
+    
+    
+                    /*Ghe duoc chinh minh dat*/
+                    .gheDaDuocDat {
+                        width : 40px;
+                        height : 40px;
+                        border-radius: 10px;
+                        cursor: pointer;
+                        margin: 15px;
+                        background-color: rgb(46, 46, 199) !important;
+                        -webkit-box-shadow: 4px 5px 7px 0px rgba(28,243,255,0.73); 
+                        box-shadow: 4px 5px 7px 0px rgba(28,243,255,0.73);
+                        color: white;
+                    }
+    
+                    .gheKhachDangDat {
+                        width : 40px;
+                        height : 40px;
+                        border-radius: 10px;
+                        cursor: no-drop;
+                        margin: 15px;
+                        background-color: rgb(226, 10, 208) !important ;
+                        color: white;
+                    }
+    
+                }
+            }
+            .type_seat{
+                margin: 5rem 1rem 0 1rem;
+                .ghe {
+                    width : 40px;
+                    height : 40px;
+                    border-radius: 10px;
+                    cursor: pointer;
+                    margin: 15px;
+                    background-color: gray;
+                    color: white;
+                }
+
+                /*ghe da dat*/
+                .gheDaDat {
+                    width : 40px;
+                    height : 40px;
+                    border-radius: 10px;
+                    cursor: no-drop;
+                    margin: 15px;
+                    background-color: rgb(201, 34, 34) ;
+                    color: white;
+                }
+
+                /*ghe dang dat*/
+                .gheDangDat {
+                    width : 40px;
+                    height : 40px;
+                    border-radius: 10px;
+                    cursor: pointer;
+                    margin: 15px;
+                    background-color: rgb(39, 202, 39) !important;
+                    color: white;
+                }
+
+                .gheVIP {
+                    width : 40px;
+                    height : 40px;
+                    border-radius: 10px;
+                    cursor: pointer;
+                    margin: 15px;
+                    background-color: rgb(235, 120, 13);
+                    color: white;
+                }
+
+
+                /*Ghe duoc chinh minh dat*/
+                .gheDaDuocDat {
+                    width : 40px;
+                    height : 40px;
+                    border-radius: 10px;
+                    cursor: pointer;
+                    margin: 15px;
+                    background-color: rgb(46, 46, 199) !important;
+                    -webkit-box-shadow: 4px 5px 7px 0px rgba(28,243,255,0.73); 
+                    box-shadow: 4px 5px 7px 0px rgba(28,243,255,0.73);
+                    color: white;
+                }
+
+                .gheKhachDangDat {
+                    width : 40px;
+                    height : 40px;
+                    border-radius: 10px;
+                    cursor: no-drop;
+                    margin: 15px;
+                    background-color: rgb(226, 10, 208) !important ;
+                    color: white;
+                }
+                thead{
+                    tr{
+                        th{
+                            width: 20%;
+                            font-size: 1.5rem;
+                        }
+                    }
+                }
+                tbody{
+                    tr{
+                        td{
+                            border: 1px solid white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .buy__ticket-info{
+        padding: 5rem 0;
+        background-color: rgb(29, 29, 43);
+        .info__seat{
+            position: relative;
+            background-image: url('../../assets/imgs/box.jpg');
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            height: 200px;
+            z-index: 1;
+            .overlay{
+                z-index: 1;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: #0a1e5e;
+                opacity: .75;
+            }
+            .datve{
+                z-index: 2;
+                color: white;
+                height: 100%;
+                width: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                span{
+                    font-size: 3rem;
+                    font-weight: 400;
+                    color: #fff;
+                    letter-spacing: 0;
+                }
+                p{
+                    font-size: 2rem;
+                    font-weight: 700;
+                    color: #31d7a9;
+                    letter-spacing: 0;
+                }
+                button{
+                    background-image: -webkit-linear-gradient(169deg,#5560ff 17%,#aa52a1 63%,#ff4343);
+                    padding: 1px 30px;
+                    height: 50px;
+                    color: white;
+                    border-radius: 1rem;
+                    font-size: 1.5rem;
+                    font-weight: bold;
+                    &:hover{
+                        box-shadow: -3px 13px 33px 14px rgba(48,22,233,0.64);
+                        -webkit-box-shadow: -3px 13px 33px 14px rgba(48,22,233,0.64);
+                        -moz-box-shadow: -3px 13px 33px 14px rgba(48,22,233,0.64);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include responsive('medium'){
+    .buy__ticket{
+        .buy__ticket-content{
+            .buy__ticket-seat{
+                .type_seat{
+                    thead{
+                        tr{
+                            th{
+                                font-size: 1rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .buy__ticket-info{
+            .info__seat{
+                .datve{
+                    span{
+                        font-size: 1.5rem;
+                    }
+                    p{
+                        font-size: 1rem;
+                    }
+                }
+            }
+        }
+    }
+}

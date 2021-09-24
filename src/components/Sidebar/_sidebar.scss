@@ -10,6 +10,8 @@ $secondary: #44bef1;
     transition: all 0.3s;
     position: relative;
 
+	min-height: 100vh;
+
 	.h6{
         color: white;
     }
@@ -121,9 +123,16 @@ $secondary: #44bef1;
 }
 
 .admin{
+	background-color: white;
+	color: $primary;
+
+	padding: 10px 0;
+	border-radius: 10px;
+	box-shadow: 3px 5px 14px 0px rgba(0,0,0,0.72);
+
 	svg{
-		height: 40px;
-		width: 40px;
+		height: 50px;
+		width: 50px;
 	}
 
 	p{

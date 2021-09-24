@@ -1,0 +1,18 @@
+@import '../../utils/main';
+
+footer {
+    background-image: url('../../assets/imgs/footer.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-color: rgb(29, 29, 43);
+}
+
+@include responsive('medium'){
+    footer{
+        background-color: #0a1e5e;
+    }
+}
+
+@media (max-width: 414px) {
+    
+}

@@ -1,0 +1,52 @@
+@import "../../utils/main";
+
+.slick-next:before, .slick-prev:before {
+    
+    color: gray !important;
+    font-size: 3rem !important;
+}
+
+.active_Film{
+    background-color: black;
+    color: white;
+}
+
+.none_active-Film{
+    background-color: white;
+    color: black;
+    border: black solid 2px;
+}
+
+.home__movie{
+    // position: relative;
+    margin-top: 100px;    
+    .slick-slider{
+        .slick-list{
+            .slick-track{
+                width: max-content !important;
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+            }
+        }
+    }
+}
+
+@include responsive('medium'){
+    .slick-next:before, .slick-prev:before {
+        font-size: 0 !important;
+    }
+    
+}
+
+@include responsive('iphone-plus'){
+    .home__movie{
+        .home__movie-button{
+            display: flex;
+            justify-content: center;
+            button{
+                font-size: 0.5rem;
+            }
+        }
+    }
+}
+
