@@ -6,9 +6,6 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { actFileUpload } from 'redux/actions/actFileUpload';
 import moment from 'moment';
-import axios from 'axios';
-import { DOMAIN } from 'utils/constants/SettingSystems';
-import { ACCESS_TOKEN } from 'utils/constants/SettingSystems';
 import { successAlert } from 'config/sweetAlert';
 import { errorAlert } from 'config/sweetAlert';
 
