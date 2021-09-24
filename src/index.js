@@ -15,8 +15,8 @@ import 'antd/dist/antd.css';
 
 
 // Cấu hình realtime ( Websocket với signalR)
-import * as signalR from '@aspnet/signalr'
-import { DOMAIN } from 'utils/constants/SettingSystems';
+// import * as signalR from '@aspnet/signalr'
+// import { DOMAIN } from 'utils/constants/SettingSystems';
 
 
 
