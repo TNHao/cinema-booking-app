@@ -14,6 +14,10 @@ import { Provider } from 'react-redux'
 import 'antd/dist/antd.css';
 
 
+// Cấu hình realtime ( Websocket với signalR)
+// import * as signalR from '@aspnet/signalr'
+// import { DOMAIN } from 'utils/constants/SettingSystems';
+
 
 
 // kết nối đến server và luôn luôn lắng nghe sự kiện từ server
