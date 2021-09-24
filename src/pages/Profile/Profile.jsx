@@ -32,6 +32,7 @@ function Profile(props) {
         handleSubmit,
     } = props;
 
+    console.log(infoUserLogin);
 
     return (
         <div className="container-lg" style={{ paddingTop: '15rem' }}>

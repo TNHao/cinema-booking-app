@@ -12,6 +12,8 @@ import { Send } from '@material-ui/icons';
 import tableIcons from 'config/muiTableIcons';
 import { scheduleManagementTableStyle } from 'config/tableStyles';
 import { selectorOptions } from 'config/selectorOptions';
+import { successAlert } from 'config/sweetAlert';
+import { errorAlert } from 'config/sweetAlert';
 
 import { MovieScheduleApi } from 'apis/adminManagementServices';
 import { actSetMovieSelected, actSetTheaterFranchiseSelected, actSetTheaterIdSelected, actSetTheatersSelected } from 'redux/actions/actMovieSchedule';
@@ -102,14 +104,16 @@ export default function MovieSchedule() {
         }
         else
             dispatch(actSetTheaterId([]));
-            // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [theatersSelected, dispatch])
 
     const handleClick = async () => {
         let date = new Date(dateTimeSelected);
         date = moment(date).format('DD/MM/yyyy') + " " + moment(date).format('hh:mm:ss');
         const data = { maPhim: movieSelected, ngayChieuGioChieu: date, maRap: theatersSelected, giaVe: ticketPrice };
-        await movieScheduleApi.addMovieSchedule(data).then(() => alert('Thêm thành công!'));
+        await movieScheduleApi.addMovieSchedule(data)
+            .then(() => successAlert('Thêm lịch chiếu thành công'))
+            .catch(() => errorAlert());
     }
 
     return (
