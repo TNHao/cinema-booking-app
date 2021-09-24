@@ -1,5 +1,4 @@
 import { quanLyDatVe } from "apis/QuanLyDatVeApi"
-import { connection } from "index"
 import { DISPLAY_LOADING, HIDING_LOADING } from "redux/Types/CarouselTypes/LoadingTypes"
 import { DAT_VE_HOAN_TAT, GET_LIST_TICKET_ROOM, GHE_DANG_DAT } from "redux/Types/QuanLyDatVeTypes"
 import { STATUS } from "utils/constants/SettingSystems"
@@ -48,7 +47,6 @@ export const actDatVeApi = (thongTinDatVe) => {
                 type : HIDING_LOADING
             })
 
-            let userLogin = getState().QuanLyUserReducer.userLogin
 
             // connection.invoke('datGheThanhCong', userLogin, thongTinDatVe.maLichChieu)
 
