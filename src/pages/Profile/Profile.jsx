@@ -33,8 +33,7 @@ function Profile(props) {
         handleSubmit,
     } = props;
 
-    console.log(values);
-
+    console.log(infoUserLogin);
 
     return (
         <div className="profile" style={{backgroundColor : 'rgb(29, 29, 43)', paddingBottom:'5rem'}}>

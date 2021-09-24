@@ -13,7 +13,8 @@ export const filmManagementTableStyle = [
         sorting: false,
         searchable: false,
         editable: 'always',
-        render: row => <a href={row.trailer}>Watch on youtube</a>
+        render: row => <a href={row.trailer}>Watch on youtube</a>,
+        validate: row => !row.trailer ? { isValid: false, helperText: 'Trailer không được trống' } : true
     },
     {
         title: 'Hình ảnh',
@@ -21,8 +22,8 @@ export const filmManagementTableStyle = [
         sorting: false,
         searchable: false,
         editable: 'always',
-        editComponent: () => {
-            return <ImageUploadBtn />
+        editComponent: (props) => {
+            return <ImageUploadBtn {...props} />
         },
         render: row => <img height="70px" width="70px" alt={row.tenPhim} src={row.hinhAnh} />
     },

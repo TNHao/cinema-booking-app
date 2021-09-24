@@ -1,32 +1,42 @@
 import React, { useState, useEffect } from 'react';
+
 import MuiTable from 'components/MuiTable/MuiTable';
-import { userManagementTableStyle } from 'config/tableStyles';
 import { UserManagementApi } from 'apis/adminManagementServices';
+
+import { errorAlert } from 'config/sweetAlert';
+import { successAlert } from 'config/sweetAlert';
+import { userManagementTableStyle } from 'config/tableStyles';
+
 
 const editable = (props) => ({
     onRowAdd: newData =>
         new Promise((resolve, reject) => {
             const dataList = [...props.data];
             dataList.push(newData);
-            props.setData(dataList);
 
             const dataUpdate = { ...newData, maNhom: "GP01" };
-            console.log('checked')
             props.managementService.addNewUser(dataUpdate)
-                .then(() => resolve())
-                .catch(() => reject());
+                .then(() => {
+                    successAlert('Thêm người dùng thành công'); 
+                    props.setData(dataList); 
+                    resolve()
+                })
+                .catch(() => {errorAlert(); reject()});
         })
     ,
     onRowUpdate: (newData, oldData) =>
         new Promise((resolve, reject) => {
             const dataList = [...props.data];
             dataList[oldData.tableData.id] = newData;
-            props.setData(dataList);
 
             const dataUpdate = { ...newData, maNhom: "GP01" };
             props.managementService.updateUser(dataUpdate)
-                .then(() => resolve())
-                .catch(() => reject());
+                .then(() => {
+                    successAlert('Cập nhật người dùng thành công'); 
+                    props.setData(dataList); 
+                    resolve()
+                })
+                .catch(() => {errorAlert(); reject()});
         })
     ,
     onRowDelete: oldData =>
@@ -35,12 +45,14 @@ const editable = (props) => ({
             const updatedRows = [...props.data];
 
             updatedRows.splice(index, 1);
-            props.setData(updatedRows)
-
-            console.log("checked")
+            
             props.managementService.deleteUser(oldData)
-                .then(() => resolve())
-                .catch(() => reject());
+                .then(() => {
+                    successAlert('Xoá người dùng thành công'); 
+                    props.setData(updatedRows); 
+                    resolve()
+                })
+                .catch(() => {errorAlert(); reject()});
         })
 })
 

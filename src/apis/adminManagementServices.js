@@ -46,7 +46,7 @@ export class MovieManagementApi {
         //         Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiMTIzNCIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2VtYWlsYWRkcmVzcyI6InF3dHcxMjMxc3NzQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6WyJRdWFuVHJpIiwicXd0dzEyMzFzc3NAZ21haWwuY29tIiwiR1AwMSJdLCJuYmYiOjE2MzEwMTY5NTYsImV4cCI6MTYzMTAyMDU1Nn0.I5tDI56fEX05yQhVXrUA3e2KWjm0h1WfsZ48pSoRlcc",
         //     },
         // });
-        return baseSevice.post(`/api/QuanLyPhim`, movie);
+        return baseSevice.post(`/api/QuanLyPhim/CapNhatPhimUpload`, movie);
     }
 
     deleteData = (movie) => {
@@ -71,7 +71,7 @@ export class MovieManagementApi {
 
 export class MovieScheduleApi {
     addMovieSchedule = (data) => {
-        baseSevice.post('/api/QuanLyDatVe/TaoLichChieu', data);
+        return baseSevice.post('/api/QuanLyDatVe/TaoLichChieu', data);
     }
 
     fetchDetailSchedule = async (movieId) => {
