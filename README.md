@@ -1,39 +1,49 @@
-# WEB đặt vé xem phim và quản lý phimm, người dùng.
-This is a project inspired by [REST Countries API with color theme switcher challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca) challenge.
+# Web đặt vé xem phim và quản lý phim, quản lý người dùng
 
-### The challenge
+Dự án này là bài tập từ trung tâm tin học cybersoft. 
+Dự án được xây dựng từ React library.
+### Tham khảo
+Dự án có tham khảo luồng và giao diện của trang [Boleto](https://boleto.vercel.app/##).
 
-Your challenge is to integrate with the [REST Countries API](https://restcountries.eu) to pull country data and display it like in the designs.
+### Mô tả dự án
 
-You can use any JavaScript framework/library on the front-end such as [React](https://reactjs.org) or [Vue](https://vuejs.org). You also have complete control over which packages you use to do things like make HTTP requests or style your project.
+Khách hàng có thể:
+- Đăng kí , đăng nhập
+- Xem những bộ phim có suất chiếu theo ngày hiện tại và những ngày tiếp theo
+- Xem trailer phim
+- Xem vé xem phim theo ngày hiện tại và những ngày tiếp theo
+- Lọc lịch chiếu phim theo cụm rạp, xem chi tiết thông tin phim
+- Đặt ghế xem phim, đặt đồ ăn, thanh toán
+- Xem thông tin người dùng, đặt vé và thay đổi thông tin người dùng
 
-Users should be able to:
-
-- See all countries from the API on the homepage
-- Search for a country using an input field
-- Filter countries by region
-- Click on a country to see more detailed information on a separate page
-- Click through to the border countries on the detail page
-- Toggle the color scheme between light and dark mode (optional)
+Người quản trị có thể:
+- Quản lý (thêm, xóa, cập nhật) thông tin lịch chiếu phim
+- Quản lý (thêm, xóa, cập nhật) thông tin chi tiết của phim
+- Quản lý (thêm, xóa, cập nhật) thông tin người dùng trên trang (bao gồm admin lẫn khách hàng)
 
 ### Links
 
-- Solution URL: https://github.com/TNHao/country-app
-- Live Site URL: https://country-app-jet.vercel.app/
+- Github repo: https://github.com/TNHao/cinema-booking-app
+- Live Site URL: https://cinema-booking-app-six.vercel.app/
 
-## My process
+### Project này sử dụng
 
-### Built with
-
-- Semantic HTML5 markup
-- SCSS
-- Bootstrap v5.1
 - React - JS library
 - Redux
 - React Router
+- SCSS
+- Bootstrap v4.6
 - Axios
+- Sweetalert2
+- Formik
+- Yup
+- Slick-carousel
+- Tailwind css
+- AntD
+- Glassmorphism
+- Material UI, Material-table
 
 ## Author
 
-- Facebook - [Trần Nhật Hào](https://www.facebook.com/TranNhatHao1516/)
-- Email - trannhathao1516@gmail.com
+- Github: [Lê Minh Thái](https://github.com/IvanTime-Kai) - Email: ivantime000@gmail.com 
+- Github: [Trần Nhật Hào](https://github.com/TNHao) - Email: trannhathao1516@gmail.com
