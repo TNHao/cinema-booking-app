@@ -2,10 +2,12 @@ import React from 'react'
 import './Login.scss'
 import { ErrorMessage, withFormik } from 'formik'
 import * as Yup from 'yup'
-import { connect } from 'react-redux'
+import { connect, useSelector } from 'react-redux'
 import { actLogin } from 'redux/actions/QuanLyUserActions'
 
 function Login(props) {
+
+    const { err } = useSelector(state => state.QuanLyUserReducer)
 
     const {
         handleChange,
@@ -18,12 +20,12 @@ function Login(props) {
             <div className="group">
                 <label htmlFor="taiKhoan" className="label">Username</label>
                 <input name="taiKhoan" type="text" className="input" onChange={handleChange} />
-                <ErrorMessage name="taiKhoan">{msg => <div className="text-red-600 mt-2">{msg}</div>}</ErrorMessage>
+                {err ? <div className="text-red-600 mt-2">{err}</div> : <ErrorMessage name="taiKhoan">{msg => <div className="text-red-600 mt-2">{msg}</div>}</ErrorMessage> }
             </div>
             <div className="group">
                 <label htmlFor="matKhau" className="label">Password</label>
                 <input name="matKhau" type="password" className="input" data-type="password" onChange={handleChange} />
-                <ErrorMessage name="matKhau">{msg => <div className="text-red-600 mt-2">{msg}</div>}</ErrorMessage>
+                {err ? <div className="text-red-600 mt-2">{err}</div> : <ErrorMessage name="matKhau">{msg => <div className="text-red-600 mt-2">{msg}</div>}</ErrorMessage> }
             </div>
             <div className="group">
                 <input id="check" type="checkbox" className="check" defaultChecked />

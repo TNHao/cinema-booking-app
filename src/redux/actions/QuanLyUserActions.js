@@ -3,6 +3,7 @@ import { history } from "App"
 import { GET_INFO_USER_LOGIN, GET_TYPE_USER, GET_USER } from "redux/Types/QuanLyUserTypes"
 import { ACCESS_TOKEN, STATUS, USER_LOGIN } from "utils/constants/SettingSystems"
 import Swal from "sweetalert2"
+import { ERROR_USER } from "redux/Types/QuanLyUserTypes"
 
 
 
@@ -29,6 +30,10 @@ export const actLogin = (userLogin) => {
             await history.push("/home")
         }catch(err){
             console.log(err.response.data)
+            dispatch({
+                type : ERROR_USER,
+                data : err.response.data.content
+            })
         }
     }
 }
